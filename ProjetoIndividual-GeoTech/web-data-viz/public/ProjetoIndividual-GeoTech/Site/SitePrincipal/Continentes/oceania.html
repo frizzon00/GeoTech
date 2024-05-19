@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Página Oceâmia</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="bodyaf">
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
+                    class="logo" width="50px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="../index.html">Início</a>
+                </li>
+                <li>
+                    <a href="../curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="../jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a href="../contato.html">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudograf">
+        <h1 class="titulograf">Continente Oceânia</h1>
+        <div class="grafico">
+            <canvas id="myChart" class="chart"></canvas>
+            <canvas id="myChart2" class="chart"></canvas>
+        </div>
+        <br>
+        <h1 class="titulograf">Países Oceânia</h1>
+        <div class="Países">
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/AUSTR%C3%81LIA-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Austrália</p>
+                    <p class="capital">Capital: Camberra</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Fiji-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Fiji</p>
+                    <p class="capital">Capital: Suva</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Ilhas%20Marshall-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Ilhas Marshall</p>
+                    <p class="capital">Capital: Majuro</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Ilhas%20Salom%C3%A3o-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Ilhas Salomão</p>
+                    <p class="capital">Capital: Honiara</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Kiribati-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Kiribati</p>
+                    <p class="capital">Capital: Tarawa</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="data:image/jpeg;base64,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">
+                <div class="informaçoes">
+                    <p class="País">País: Micronésia</p>
+                    <p class="capital">Capital: Palikir</p>
+                </div>
+            </div>
+
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Nauru-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Nauru</p>
+                    <p class="capital">Capital: Yaren</p>
+                </div>
+            </div>
+
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Nova%20Zel%C3%A2ndia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Nova Zelândia</p>
+                    <p class="capital">Capital: Wellington</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Palau-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Palau</p>
+                    <p class="capital">Capital: Ngerulmud</p>
+                </div>
+            </div>
+
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Papua_Nova_Guine-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Papua Nova Guiné</p>
+                    <p class="capital">Capital: Port Moresby</p>
+                </div>
+            </div>
+            
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Samoa-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Samoa</p>
+                    <p class="capital">Capital: Apia</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Tonga-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Tonga</p>
+                    <p class="capital">Capital: Nuku'alofa</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Tuvalu-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Tuvalu</p>
+                    <p class="capital">Capital: Funafuti</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Vanuatu-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Vanuatu</p>
+                    <p class="capital">Capital: Port Villa</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footercontinentes">
+        <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+    </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Austrália', 'Nova Zelandia', 'Palau', 'Tonga', 'Ilhas Marshall'],
+            datasets: [{
+                label: 'IDH - Top 5 Países na Oceânia',
+                data: [0.944, 0.931, 0.798, 0.726, 0.708],
+                backgroundColor: 'rgba(0,212,255,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'IDH',
+                        color: 'white' // Cor do título do eixo y
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo y
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Países',
+                        color: 'white' // Cor do título do eixo x
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo x
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Cor do texto da legenda
+                    }
+                }
+            },
+            onRender: function (chart) {
+                chart.legend.legendItems[0].fontColor = 'white';
+                chart.update();
+            }
+        }
+    });
+
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Austrália', 'Nova Zelandia', 'PNG', 'Fiji', 'Samoa'],
+            datasets: [{
+                label: 'PIB - Top 5 Países na Oceânia',
+                data: [1300000, 220000, 25000, 9000, 850],
+                backgroundColor: 'rgba(0,212,255,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'PIB (Milhões de USD)',
+                        color: 'white' // Cor do título do eixo y
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo y
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Países',
+                        color: 'white' // Cor do título do eixo x
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo x
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Cor do texto da legenda
+                    }
+                }
+            },
+            onRender: function (chart) {
+                chart.legend.legendItems[0].fontColor = 'white';
+                chart.update();
+            }
+        }
+    });
+
+
+
+
+
+</script>
+
+</script>

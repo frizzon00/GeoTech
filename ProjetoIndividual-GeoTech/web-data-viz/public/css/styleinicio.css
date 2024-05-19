@@ -1,0 +1,759 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #71dfee;
+    background: linear-gradient(to bottom right, #f7f7f7, #d3fff8);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: rgb(48, 170, 210);
+    background: linear-gradient(90deg, rgba(48, 170, 210, 1) 0%, rgba(51, 186, 242, 1) 40%, rgba(0, 212, 255, 1) 100%);
+    border-bottom: 3px solid #ebf3ff;
+    height: 13vh;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    margin-top: -5px;
+}
+
+.header .container {
+    gap: 26%;
+}
+
+.titulo {
+    color: #ffffff;
+    font-weight: 600;
+
+}
+
+.logo {
+    padding: 20px;
+}
+
+.principal {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    color: #ffffff;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbarinicio {
+    color: #ffffff;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    gap: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.conteudo {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../assets/fundo3.png');
+    width: 100%;
+    height: 108vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+.conteudoj {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../assets/fundo3.png');
+    width: 100%;
+    height: 108vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+.conteudoinicio {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../assets/fundo3.png');
+    width: 100%;
+    height: 78.1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+.conteudocadastro {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../assets/fundo3.png');
+    width: 100%;
+    height: 105vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+
+
+.cadastro {
+    width: 39vw;
+    height: 86vh;
+    background-color: rgb(197, 216, 235);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0066ff;
+    border-radius: 18px;
+}
+
+.conteudologin {
+    /* background: linear-gradient(to top rgb(24,126,169, 0.5), rgb(53,169,208,0.5)), url('../assets/fundo3.png'); */
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../assets/fundo3.png');
+    /* background-image: url('../assets/fundo3.png'); */
+    width: 100%;
+    height: 78.1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+.login {
+    width: 39vw;
+    height: 36vh;
+    background-color: rgb(197, 216, 235);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0066ff;
+    border-radius: 18px;
+}
+
+.enviarlogin {
+
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.chamar {
+    font-size: 30px;
+    color: #ffffff;
+    
+}
+
+.cadastrar {
+    width: 30%;
+    height: fit-content;
+    background-color: #0066ff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.cadastrar:hover {
+    background-color: #4693ff;
+}
+
+.btncomecar {
+    width: 110px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.btncomecar:hover {
+    background-color: #e9e9e9;
+}
+
+
+.tudo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.tudologin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5.8%;
+}
+
+.card_erro {
+    display: none;
+    background-color: rgb(197, 216, 235);
+    color: black;
+    width: 230px;
+    border-radius: 18px;
+    border: #0066ff 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+    height: fit-content;
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.inicio1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inicio2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.continentes {
+    margin: 30px;
+    height: 40vh;
+    width: 20vw;
+    background-color: rgb(197, 216, 235);
+    display: flex;
+    justify-content: start;
+    border: 3px solid #30aad2;
+    border-radius: 18px;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+
+}
+
+.continentes:hover {
+    transform: scale(1.1);
+}
+
+.informaçoes p {
+    font-weight: 700;
+}
+
+@keyframes mudarBorda {
+    0% {
+        border-color: rgb(255, 171, 62);
+    }
+
+    25% {
+        border-color: rgb(82, 255, 218);
+    }
+
+    50% {
+        border-color: rgb(45, 253, 45);
+    }
+
+    75% {
+        border-color: rgb(255, 38, 38);
+    }
+}
+
+@keyframes mudarCor {
+    0% {
+        color: rgb(8, 41, 184);
+    }
+
+    25% {
+        color: rgb(186, 82, 255);
+    }
+
+    50% {
+        color: rgb(12, 124, 12);
+    }
+
+    75% {
+        color: rgb(255, 38, 38);
+    }
+}
+
+.continentesp {
+    margin: 30px;
+    height: 40vh;
+    width: 20vw;
+    background-color: rgb(197, 216, 235);
+    display: flex;
+    justify-content: start;
+    border: 5px solid #30aad2;
+    border-radius: 18px;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+    animation: mudarBorda 4s linear infinite;
+}
+
+.continentesp:hover {
+    transform: scale(1.2);
+}
+
+.desafio,
+.quiz {
+    animation: mudarCor 4s linear infinite;
+    font-weight: 700;
+}
+
+.cardimg {
+    margin-top: 20px;
+    width: 140px;
+    height: 140px;
+
+}
+
+.descricao {
+    font-size: 14px;
+    color: #1d6d92;
+    margin-top: -15px;
+    margin-bottom: 5px;
+}
+
+.botaoGraficos {
+    border: 1px solid #30aad2;
+    border-radius: 10px;
+    background-color: #8fe2de;
+    cursor: pointer;
+    color: #1d6d92;
+    font-weight: 600;
+}
+
+.botaoJogos {
+    border: 1px solid #30aad2;
+    border-radius: 10px;
+    background: rgb(80, 201, 241);
+    cursor: pointer;
+    color: #1d6d92;
+    font-weight: 600;
+    height: 26px;
+}
+
+h5 {
+    color: #1d6d92;
+}
+
+
+.footer {
+    border-top: 3px solid #ffffff;
+    width: 100%;
+    height: 8vh;
+    color: #ffffff;
+    background: rgb(48, 170, 210);
+    background: linear-gradient(90deg, rgba(48, 170, 210, 1) 0%, rgba(51, 186, 242, 1) 40%, rgba(0, 212, 255, 1) 100%);
+    font-weight: 600;
+}
+
+.footercontinentes {
+    border-top: 3px solid #fcfdff;
+    width: 100%;
+    height: 8vh;
+    color: #ffffff;
+    background: rgb(48, 170, 210);
+    background: linear-gradient(90deg, rgba(48, 170, 210, 1) 0%, rgba(51, 186, 242, 1) 40%, rgba(0, 212, 255, 1) 100%);
+    font-weight: 600;
+    margin-top: -100px;
+}
+
+
+
+.footerp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FIM Pagina inicial */
+
+.conteudosobre {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.6) 0%, rgba(24, 126, 169, 0.9) 35%, rgba(0, 212, 255, 0.6) 100%), url('../assets/fundo3.png');
+    width: 100%;
+    height: 94vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+.conteudoonu{
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.6) 0%, rgba(24, 126, 169, 0.9) 35%, rgba(0, 212, 255, 0.6) 100%), url('../ProjetoIndividual-GeoTech/Site/fundo3.jpg');
+    width: 100%;
+    height: 138vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center -60px;
+    background-attachment: fixed;
+}
+
+.empresa {
+    color: #ffffff;
+    justify-content: start;
+    margin: 30px;
+}
+
+.imgsobre {
+    width: 300px;
+    height: 300px;
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.imgsobre2 {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.imgsobre3{
+    width: 320px;
+    height: 320px;
+    float: right;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 15px;
+    padding: 7px;
+    font-weight: 700;
+}
+
+/* FIM PAGINA SOBRE */
+
+.contato {
+    color: #ffffff;
+    justify-content: center;
+    margin: 30px;
+
+}
+
+.tituloh2 {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: -33px;
+    margin-top: -17px;
+}
+
+.pcontato {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: -25px;
+}
+
+.conteudocontato {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../assets/fundo3.png');
+    width: 100%;
+    height: 102vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    justify-content: center;
+}
+
+.formcadastro {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 98%;
+    margin-top: 15px;
+}
+
+.formlogin {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 98%;
+    margin-top: 25px;
+}
+
+.esquerda {
+    width: 450px;
+    height: 450px;
+    background-color: rgb(197, 216, 235);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0066ff;
+    border-radius: 18px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 98%;
+}
+
+.direita {
+    width: 450px;
+    height: 450px;
+    background-color: rgb(197, 216, 235);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0066ff;
+    border-radius: 18px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #0066ff;
+    font-weight: 500;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #0066ff;
+    box-sizing: border-box;
+}
+
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #0066ff;
+    box-sizing: border-box;
+}
+
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #0066ff;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #0066ff;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.entrar {
+    background-color: #0066ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: fit-content;
+    font-weight: 600;
+}
+
+.entrar:hover {
+    background-color: #4693ff;
+}
+
+input[type="submit"]:hover {
+    background-color: #4693ff;
+}
+
+.enviar {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.enviarcadastro {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+/* FIM PAGINA CONTATO */
+
+.conteudograf {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../assets/fundo3.png');
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    flex: 1;
+    background-size: cover;
+    background-position: center -150px;
+}
+
+.chart {
+    margin-inline: 40px;
+}
+
+.grafico {
+    width: 85vw;
+    height: 40vh;
+    justify-content: center;
+    display: flex;
+
+}
+
+.titulograf {
+    color: #ffffff;
+}
+
+.Países {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    flex: 1;
+}
+
+.cardp {
+    background-color: rgb(197, 216, 235);
+    width: 300px;
+    height: 150px;
+    margin: 0.8%;
+    border: 10px solid #30aad2;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.cardp:hover {
+    transform: scale(1.1);
+}
+
+.informacoes {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.País {
+    color: #0066ff;
+}
+
+.capital {
+    color: #0066ff;
+}
+
+.bandeira {
+    width: 130px;
+    height: 80px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

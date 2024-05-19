@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Página América do Norte e Central</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="bodyaf">
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
+                    class="logo" width="50px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="../index.html">Início</a>
+                </li>
+                <li>
+                    <a href="../curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="../jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a href="../contato.html">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudograf">
+        <h1 class="titulograf">Continente Norte e Centro Americano</h1>
+        <div class="grafico">
+            <canvas id="myChart" class="chart"></canvas>
+            <canvas id="myChart2" class="chart"></canvas>
+        </div>
+        <br>
+        <h1 class="titulograf">Países América do Norte e Central</h1>
+        <div class="Países">
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Antigua_Barbuda-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Antígua e Barbuda</p>
+                    <p class="capital">Capital: Saint´s Jhon´s</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Bahamas-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Bahamas</p>
+                    <p class="capital">Capital: Nassau</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Barbados-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Barbados</p>
+                    <p class="capital">Capital: Bridgetown</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Belize-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Belize</p>
+                    <p class="capital">Capital: Belmopan</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Canad%C3%A1-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Canadá</p>
+                    <p class="capital">Capital: Ottawa</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Costa-Rica-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Costa Rica</p>
+                    <p class="capital">Capital: San José</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Cuba-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Cuba</p>
+                    <p class="capital">Capital: Havana</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Dominica-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Dominica</p>
+                    <p class="capital">Capital: Roseau</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/El-Salvador-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: El Salvador</p>
+                    <p class="capital">Capital: San Salvador</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Estados-Unidos-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Estados Unidos</p>
+                    <p class="capital">Capital: Washington, D.C</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8QEBIQDxAPDw8PEBAQDw8PDw8PDw8PFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODU4NygtOisBCgoKDg0OGhAQGi0lHSUtLS0tLS0vKy0tLS0tLS0tLS0uLSsrLS0tLS0tLS0rLS8tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBEQACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAADBAIFBgEAB//EAEMQAAICAAMEBQgIAwcFAQAAAAECAAMEESEFBhIxIkFRYXETIzKBkZPB0kJSU2JjkqHRgrHhM0NUcnOywhQVFqKjB//EABsBAAIDAQEBAAAAAAAAAAAAAAABAgMEBQYH/8QAPREAAgEDAAUJBgUEAgIDAAAAAAECAwQRBSExQdESIlFhcYGRobEUFTJSwfAGE3KC4SQzNEJiwkOSI7Lx/9oADAMBAAIRAxEAPwDGEzAe8JCA0TETJoIoiJHcWersEaKiutaTRnmxcmMobCJAsiO4SoswVQWYnIADMk9gEhJpLLL00lll5hdi32XVo1NqoXUOzVuqhM+lmSOzOY613ThCUlJZS1a9+4TrwjBtSWe0e3o2Jd/1TtTU7pYFfNFJUMdCP0z9czWN3T/ISnJJrVrZVa3EPy0pPDRQ4jDWVNw2IyNlnwsMjl4TowqRmsxeUbYTjJZiz1A1khS2EcS2saIrYLGMGeRSSANSTkB3xN4WRZwi0w+wcUzKpotUMwBYrooJyzMzSvaCTfKRU7mmlnlI0W8uw38qjUVsymtVIRc8ig4Rn6svZMdhdx5DVSWHnf1/yZLa4XJam9/qUWIwllRAsRkJ1AYZEjtnThUhPXF5NkZxl8LyBYyRIAzRFiQMmBM9AC0q2DjGAZaGZSM1IasgjtBzmZ3tunhy9eBQ7minhy9eBpdt7vP5DDLSnG9K8DgZAkEcRbX72f5pzrS+j+bUc3hPWvvsMNC5X5knJ6nrM7j9nXUAG1ODi5ZshJ9QOc6tOvTq/A8+JshVhN815Ki0y00AWMkRZAmBE9nACSwGM0iBCTD5wIgnaIsSIcURLAlJkCaxEkEETLA1I1EQpbBfEvmTJIqlqQhYZMyzYLOBWGrgWwLDBjXPs1kDSthvtytp33LYtp40q4Qtjenmc+iT15Ac+c87pS3p05Jw1N7t3ac69owg046m9w9vHtGyvCm7DMp1UGwZOFQnLiXqzzymeyoRnX5FVPsKralGVXkT8D5uzliWYlmY5liSST2kz1CSSwjuJJLUGoHMwITFrW1jAEYyLPCAI224eNvcvUx46q0BBbMshJyVQezRvDKcTSlGnFKaWJNnPvqcElJbWaTaeNK4ey3DsjsgOoIYDI5Ny6wM/ZMVvRTrRhUTSf2jHSgnUUZ7z57dazsWdizNqWY5kz00YqKxFYR2IxSWFsF3aMsSAsYiwjAkegBp9xsVf5cUo3mSHexDmQABzXsOZE5mlKdP8rlyXO2J8TDfQhyOU1r3G3OLVxatD1vbWrDhzDcL5aZgd84kaTi4uomov0OVyHHDmtTPmOOxL2EvYzM7cy3Pw7vCeshTjBcmKwjuQgo6orUVjmTRawLGMrbIZxkcnQYMYRYhjdAgQkTsMAihdjEXJHM4hi0mVE1iJosdmbPOIbgWylG6ltZ14vAhSCe7nKa1R0octxbXUk8eZjr6St6FZUajxJrK69q6eovl3LxSgkvh+X17PkmD3tQe6XguISv6XQ/LiVeL3TxI+nR+ez5ZZHSlF7peC4lcr6m9z8P5Ku3dzEDrp9Tt8svWkKL6fBcTNK7g+kGu7uI/D/Of2jd/R6/ASuodY5h91sUeQr95/SVvSVBbW/AuhdU+stqN0MZwno15n8QftK3pO36X4GhXlLrGhu/tFaTQvkkRmL2cNuthIAAY5cgANJnd9aOp+Y8t4wtWwTuaDny3nO7VsPYPd3aFavWppNdqlXraxihzHpDo6HlqOyFS/tJyUnnK1p41+uwJ3VCTUnnK34AruXjO2j3j/JLfe1v/AMvBcSz2+j1+H8hhudiwp1oz/wBR/kj96UNuJeC4kHfUm9/h/IlZufi+2j3j/JGtK2//AC8FxB31Lr8P5AndHF9tHvG+WP3pQ6/BcSPt1Lr8P5Jpuhi/wfeN8sXvWh1+H8jV7S6yywm7uPStqkalFsbicrY3E4yyCk8Oi89O+VSvrWc1NptrZq/khK5oSkpPOUM4Dd/HUk8DU8LAq6F2KOpGRDDh/WSq3ttVXOTytjxrXmRqXNGe3IA7o4rtp943yyx6Uodfh/JP2yn1gX3OxfbR7x/lkPetv1+C4livqXX4fyR/8Lxn1sP7yz5Ive1v0S8FxH7fR6/BcTv/AITjPrYf3lnyQ972/RLwXEfvCl1+C4khuRivr4f89nySPveh0S8FxF7wpdD8uI3hN1cbUrrXdQnlQFdlNnFwj6IPDoD15dkrnpK3m05Rbx2cSud5Rk05Rbx2cTuD3RxdTh67qkZeRUuP+Oo7pKWk6FRcmUW13cQne0prDi2iON3QxDsWNlALEsQOMDMnM5aRrSlKKS5L1dgoX0IrGGV9u5t4/vaf/f8AaTWlqXyvyG9IQ6GKPujiPtKfa/yya0pS6H5cSHt8Ohgjuniep6PzP8sl70o9D8uIvbqfQ/vvJLulivrUfnf5Ie9KHRLwXEkr6n1+C4hq9z8X9aj3lnyRe9KHQ/BcSSvqXX4fyTxWwLKF4rbKF7BxuWbuA4dZfQu415Ypxk+5Y9TNX0pb0lmba++0prWmk6sUDiLDkBiwk2UhVERNBkE12/wngfxX/mR/QvWRotmb0XUKEszur7Cemo7m6/Azn3miKVbMoc2Xk+1cDBaaUq0Uoz50fNdjLX/ulV68VTA9qnRl8RPP1LSrQlyai4M79K5p1lmD4iFzyUUTJ0CKQIvcAkx1GWxRdINBKZEzxMiBxYAFWICNxlr2CEbTBAwQMkIPUJBjGkElEAoEkB6RbAjKmM7nEB6IDogB2NASWWRABcYntAr8Q8nFEWIWPLUiJBWjwAdXCgsxCqNSScgB3mR5Lk8RWWEpKKy3hFLtHesDoYYcR5G1h0R/lXr8T+s7lpoVvnV9XUtve+BxrnS6XNo+L+hnsRc7nidi7HmzHMz0EKcaceTBYRyHOU5pyeWIsZgPrCRyBI9ABdZJlSCrAmg1c12/ws8D+K1/WQ/QvWR7Ft1dglx517SuNzKeJWKsORByMjOEZrkyWUaKUnF5i8MtsBvBn0b9PxFGnrH7Tj3GjMc6l4cDr0NIbqviafAkMAVIYHkQcwZw6qcW01hnVg1JZRpNn18pjntLkWcpk9ZIgYgOrAAiwjtAFeZN7RCVhkkDILGIaqErYxlBLEASMDkrkxnMpWByIDwgBIQA7GgJdUsjsATxDRICqxNkuiiDEWeWpEclbj9u1U6Dzln1FOgP3j1fznQttG1a+t6o9PBGK5v6dHUtcujizNY7ad2IPnG6I5IuiD1dfiZ6O2s6VuuYtfTvPPXN1UrvnvV0biOHXWaWZ4hrDIvYyyPxxXWvUVnOPrpyAHYABWSKkEETLEMUCa7f4WeD/FS/q4fo+rFsU3OaDzUdbK20yLNEQUCRZ7K2hbQ2dbadanVD4iUV7WlXjia795Olc1KLzB924+lbtbfpuyVvNW/VY9Fj91uvw5zy17ourQzJc6PSvqvtHdtNJUq3NeqX3sZomnGOkQjAmoiAIJKACt7SW8QmxkyJ1BExocqEgMZUSxAdgwOGVMZwyAHIAegBIQA7GgPWHSWPYBW4p44oTM/tbaNdIzsYDsHNm8BN9tbVKzxBZ9DNWrwpLM2YzaW8FtuapnWncemR3nq8BPR2ujKdLnT1y8jh3F/OpqjqXmVlc6ZzWM1CBWx3DiJkonHOvrEHsZKlrqw/UvVC85p9eZ6MR6IYNRJFaCCIsQevRSfVNVv8J4T8VarqD/4fViGIaaTzUEIWGRL0cUQGxzDrGUyZZoMl8Yyl7C72RvRdRktmd1XYx84o+63X4H9JyL3Q9GvmUObLyfauB0bTStWjzZ86Pmu82uzNp04heKpwcvSU6OviPjPK3NnWtpcmou/c+w9Lb3VK4jmm+7eixUTKaCTcpOOwBC4xxELEyZELUJFkkO1iRQBhLQOyMmM5KWBExAcjA9EBOAEhJIAGMtVQWYhVUZlmIAA7zLFFykoxWWKUlFZbwjB7e3tGqYYcR5G1h0f4V6/Ez0NnoV/FX1dS+rOHc6WXw0fHgjEYm9nYs7FmPNmOZnoYQjTjyYrCOTKUpvlSeWCEmRD1wIMbqECodUZLEWbEAMctjHba69P9UfVAZzUfXmejEdiAgkZFBFkSYWzRB3kmbLfYzwn4r/yYfp+rKy8y885EUaItJViNCZYYZYyibH7NMh2CBCQIwIE8Pa1bBkYow5MpyIkZwjUi4zWU+knCcoSUovDRstib48kxQy6vLINP4lH8x7J5u90D/vbv9r+j4netNM7I113r6rgaxrlZQyMGVhmGUggjuM4E4Sg+TJYZ3oyUlyovKELmggYJRGIapEgyQ5WI4gEEmB4yuTGcMqAgY0B6MDqxMCYiAp9q7x00ZqPO2j6CnRT95urw5zrWOiq1fEnzY9L39i+0c660lSo5itcuhfVnz7be2LsS2drdEHo1roi+rrPeZ6u1sqNsuYte97/vqPN3F3VuHz3q6NxRXNNRXFCrGItRJIxMYqECuQ7SIytbRq06RIlN4FzFL4WTtNdxT/VH1QEmc4+us4IxE4DOLEwQRBESPYturs0/QTZb/Czwf4pX9RTf/F+pWXGXs89EAYiYWkRkJMs8GmojKdrDWHWBW9oOAiQgASsawZKK1jWF2tdh2JqfIdaHVG8R8RrMtzZ0bmOKi19O9Gqhd1aEswfduNPszeOm/JW81afoseix+63w5zzN3oqrQ50edHp396+0ehtdJU62E9UvvYy4QazlnRHaVlbJjD2KilnYKo5sxAA9ZlkIuTwllgk28IpsVvZhU0XyluXWi5L7WInQho2tJa8L76jVGyqPbq++oUTffD55NXco7ckbL9YT0RV3SXnwLXo+puaLnAbWw+IGdNiuRzXVXHip1nPrW1Wj8ax6eJlqUZ03zkNGUFR7OMBXaG0qcOvFc4XPko1du4Drmi2tKtzLk01nr3LtZnuLqlQjyqjx6vuMXtneq67NKs6auWh84w72HLwE9VZaGo0MSqc6XkuxcfA83d6Vq1ubDmx833/faUi6KZ1znLUhG9owihC1oi9IXJiJhK40JjlIjKZMfwyxMjFErTrBCmwLGKfwsusv8ml+qPqgJM559bZ4QETiJHhAYaka+GsQS2C2Ib+Z+E12+xnh/wAUL/56f6X6iaVl2CjIFmCjPlmTkJbUkoRcnuPPU4cqSj0kcRhnrbhsUqe/r8D1yNOrCouVB5ROpTlTeJLATDrLTPItMMMgT3Rsq6WRaBWcgBICABq9ATEyyOzIpYYxAWiJF7sXeO2nJXztq7Cemo+63wM5d5omlX50ObLyfavqdG20nUo6pc6Pmux/Q3GG29hjS1wccKDNkOlgJ5Lw9pOnZPM1NHXFOqqco7dj3eJ6W0rwu9VJ5fRvRjdqbVtxLcTnJQehWD0UHxPfO/b20KEcR272ehpUY0lheIotZdlRfSdgq+JOQl8pKMXJ7EW5STb3Fhvls0UWpwDJHqUD/MgCn9Ap9ZmDR1w6tN8ran66+JVZVnUg87c+usoa7GVgyMVZTmrKciD4zfKKksNajXJJrDN7u3vItyFb2VLa14ixIVXQfT7AR1ieevdHunJOkm093X0HEvaEaC5ecR69wptjfADNMKMzy8qwOQ/yqefiZvstBt864/8AVfV8Dyt3plLm0PF/RGRvvexi9jM7HmzHMmekp04U4qMEkuhHAnOU5cqbyzgkyBO85KBEix7CtxDRkooRtaRL0gQgSD1CMhIepWMokWFIyEiyS1IExkilgiZGfwvsNVl/k0v1R9UCnPPrJ1YDQSRJHhAaDLopPqgRltELj8fhNlvsZ4n8Uf3qfY/Ujs5OK+ofiIfYc/hFdyxQm+p+hwrZZqwXWjcHDq44XUMOxhmJ5ONSUHyovDPSyhGaxJZQvbukrjiw54G+oxzQ+B5idC301KDxWWV0rb4bzmXGiYyWaTw+h7P4Ka6lq80dSrgkMpGRBnoqc41IqUXlPYzz9SMoPkyWHvFjJlR4QAmsACXHIAe2IsepYEnMYkDiJhEEZFjmFqLsFUAsTkM2Vcz2Zk5THdVEtuxaz2f4XtlCjO5ltbwuxbfF+hdLu7jPsG/NX805vt1v8/rwPR+00vm9Sz3d2DeuJV7qiiVhmBLIc35KNCe3P1THfXtKVFxhLLerfsKbi4g6bjF62W2+OzHxFA8kvHbW4ZVBALA9FhmdOvP1TnaNuI0ar5Twmv8A8M9nWVOpztjMSd2sd/h2/PT807fvC2+defA6ntdD5vXgJ47Zt9GXlq/J8XogvWWI7QAScu+aKFzTm803nHaVV4UryjOjnKaxv1dD7toGdhPKPk0ouMnGW1an2o7AiTQawJLaRxTa+ESJPWyrvaBbFCbmIvSOLAGNUCMqkywpEZQ9o42giRKWpC7GMqBmRn8L7DVZf5NL9UfVApzz6wTWIkgmURM8ogMJeclA9caKmyusPxmu32M8Z+Jv7lPsfqhnYC54mv8AiPr4GlOkX/TS7vVHFsf78e/0Zu6UnkpM9IkPbs7VoxI82cnAzNbaOB2947xFd2tSi+ctXT97DXUt50viXeI//oWEAFVw0JJqbv0JXP2NOxoCu8zovZtXo/oea05RXNqrbsfqvqYqekPPHRAA1SxMlFawOIbMxob2irGBJHFiGGQRkGNVLMFb42fRvw/j3fDHTL/7M0+wt5XpyS3OyrkDzesdx6x3TlXVhGpzoapeTNte1jPXHU/I22HvWxQ6EMjDMEdc89VjKEnGW1HLlFxeHtJmUCMrvHvUtJaqgB7hozH0Kz2fePdynWs9GuqlOpqj5v8Ag3W9m586epephMRe9jF7GLu3NmOZM9BCEYLkxWEdaMVFYS1HBOpD4UfJ9I49srY+eXqyUkYgtXPPsiZOHSKYlucY1tK29omaIoWJiLUSSBFjtCxlMmWOGWNlS1sNcYkE2LvGQBmRl8L7DVZf5NP9UfVAxOefWAixMmgkRIkg1gDI4ttfDSNFW4r3muhsZ438TfHS7H9CeBvNdqWDXhYEjtHWPZnJV6Sq05Q6Uedo1Py5qfQfS9mMtiq6EMrag/CeJrwnTk4yWGj1dOcakVKL1GNSl8NiCqkq1Nh4WHMAHon1jL2z00OTVpxlJZjJHVV5TurerTg8TSaa3p41PrW9P6l1vFtxcVhaRoLRYTYo6iqEcQ7jxfzlWj9Hytbuo/8AXGp9r+mDw97fxubaHzZ1rsT9cmanbOQSUQAOdF7zEWbEJWmMSFyYixIkggJjNYjIDaCY7iOvJ7b8MXKdKVB7U8rse3wfqFRCxCrqzEKo7STkJmbSWXsPTt41s+mF6sLQodgldSKvEevIZadpPZPIyU7iq+SstnExKrPUstimydv4fFZislXGfm3yDFQfSGuokriyq0MOWzpWwsrW06Wt7Okxm/GD8niuMejeof8AjHRb/ifXO5oury6HJ+XV3bjpWM+VS5PQZ8TpRjyngtubiNvRlVlsishJ08Y1HyGc3OTlLa3l952BELnkp79IixbCuxDRkoor7jIs0RQCBMLUNYIhJljh1kjPJljhx1xMUSLmMg3lgWMBIETIz+Fmqz/yaf6o+qIrOefWAyiJliGFr0iFk9SOvsgOQpeZJFchU/v8Jqobzxv4m+Kl+76HFWXnlyy2VtC6g51OVz5rzVvEGZ7i0o3CxUjn18SdK6q0Hmm8engWO0NoG8+UdEV+EKxTMB8uRIPI9Uja2sbeDpxbcc517iVa7nUl+bsljGVlFcZrMJ4QAJUuZgSiss5iH/SCJSesSsaA0gcRMLWIyDZpdhbs3X5M3mqvrMOkw+6vxOk5d5pWjQ5sedLoWxdr+2b7TRtWtznzY9L+iNtVu/hlpakJo4yZzkbCeo59WR6uU87U0hXqVFOT2bFu8D09pQha66a19O9mSfCPgb1e5C6oS1ZGiWMB0cz1a6kc9J1lUjdUnGDxnb1HdU1XhiLxnb1FPtfaVuJfjtbPL0VGiIOwD4y6hb06MeTBcWa6NKNNYihFXKkMpKspzDAkEHtBEuaTWGWNJrDLTHbYfF1JVYpe9HHk3Qa2AjIqVHXyOnZMVK1jbzlOLxFrWnu7zNChGlJyi8R39Rp92t21qQtiFV7LF4SjAMtaH6Pieucu90hKckqTaS37Ms5t7WjXX5eMx694rtjc/m+FPf5Fj/tY/wAj7Z0LPTv+tx/7L6rgeUu9Df7UPB/R8TJ21MjFXVkZeasMiJ6OE4zipReUzgzhKEuTJYZzEHJQPXGN7EVeIaBbERsMReiKwGM0LGiqZY0LGZ2P5ZLFvG9SF2jKgTQJIGJGfws1Weq4p/qj6o8k559YSD1iRJjfHlp2QK8A+SnvgSe0RtkiEgGU1UN5478TbaX7v+pJRLzyrYzUsZWxp9ABEhy1IFGVnQIAHGi59sRYtSE7WjEhZjEWoZ2fs+29uGpc+1joi+JlFxdUqEc1H3by6jb1KzxBcDd7B3ZppyZ8rbB1sOgp+6vxP6Ty17parWzGHNj5vtZ37XRlOlzpc6XkuxGrqE5KOmEkwI3VK6lXVXU81YAg+oySnKLzF4ZKLaeUZ7Gbm4Vzmpsqz6kYMvsYGaoaVrx+LD7f4NkL+pHbh/fUKV7j0A9K25h2DgX4Sx6Yqtaorz4k3pGb2JeZcbO2Rh8OPM1hTyLnNnP8R1mCtdVa3xvu3eBkq151PiY8JQVExABXaWy6cQvDagJHouNHXwPw5TVa3la3lmm+1bn3Ge4taVdYmu/ejA7x7u3UZsnnah1qOmo+8vxE9XZ6WpV+bLmy8u5/Q85d6Mq0nyo64+a7V9TIXtOoZIoUeItR1RAGO4dYyibLLDLrGypa2MXN1RIJsWcxkATGAzgkZfCzTav+op/qj6o6gnOPrSWsZw418Ihy2EGfWABsRoAIEVtyI2SSIyBgTTQ3nj/xRq/K/d9CaLNJ5JsaoXWDIraEuOsEE9oOBAJUuZgSiss9iH/SCJSYpwsxCqCzHQBQST6pGc1BcqTwiVODk8RWWXmzN2c8mxBy6/JKf9zD4e2cO60xjm0PF/RcTuW2i866vhxZrMHSqgKihVHIKMgJ56pOU25SeWdmEIwXJisIt8MszstQ6ojiB2MCUHsGQMpYAzBAQjA6IASEAJSUQKrHvzlkFrIyMRt3Y9VpLL5uztHot4j4zuWl/UpLky1x8/E5txZU6jytTMfjMFZUcnXTqYaqfAz0FGvTqrMHxORVozpPEkDrGsuKJMsMOskZpss8MuWsTFEhYYytgHMAQIwJo6sUvhZdbf36f6o+qJIJzWfXEMrop79Ige0XzkiIxiTmZEaFHkiLIKJpt954/wDFP/i/d9AqiaTx7GqB19kTJRIMdYytngIAGPRXvMRZsQ9s7d667Jn81UfpMOkw+6vxM5l5pWjQ5sedLq2LtZvtNGVa3OlzY9e19iNFhdn00DKpcifSc6u3ifhPOV7urcSzN925Hobe1p0FiC794QSk0DuGWVSGi1oWUkxkSS2CPQA7G9gyJlLAGYICJjA8IASEAOWNkJNbAKTaNnOXU0QbM/iTmZsiVMTesN0WAYHmDqDL4zcXlPWQcVJYYjduyT0qOf2bHn/lP7zo2+lkubW8V9Ucy40a2s0vDgIjDsh4XUqw5qwIInbhOM48qLyjhVIyjLkyWGOHRco94nqQu5jKwDGAyECRJBFLYy23/vQ/UvVE6xOafXg2I0AHdER6xQmSI5GbpEmgDSRFnlE02+88d+K//D+76BFE0njhkaL4xbyzZECYyplhsjZV2IbKpSQPSc6Ivifhzma5u6VvHNR929932jTbWtSvLEF37kbPZ+7lNGTv560ciw6Cn7q/Ezyt5patX5sObHzfa/oj0ltoylS50udLyXYhjFWznxidFsrrHlyRE7XEwLPCrKZEkWdQlaJBTJCOZxDJST2ARMpYAzADkYHoAdEABYo5CWCM/j2zzmimiuRT3TUiBCpNY5PUIvNnUzJUkWRLXEbIpxC8NqA5eiw0dfA/CK2u61vPNN925kLi1pV44mu/ejI7d3ZuozZM7qh1qOmo+8o/mJ6iz0vRr82fNl5Psf0Z5y80ZVpc6POj5rtXAzLmdc5SAmBJHIDJp+0UtjLKH96H6l6hqFzInMPr71IjiGzJjRHcLZx4KxuyRLUCMYjqiarfeeN/Fm2j+7/qFrWaWePQyKmYhEUsx0CqMyT4SEpxgnKTwi3kuTUYrLNPsbc/k+KPf5FT/vb4D2zz15pz/S3X7n9FxOzaaG2Sr+C+r4GwrqStAiKqKBkFUAAeqefnOU25SeWzvQhGCUYrCFMTZIRQ2VGJeaIogxQtLCIzhhISJIt8KkzSZNFggiQzrGDAiIAEEnuAiZSwIGAEYwOiAHRGkApjW5yxbSLM/jDNMCDKywazQiAfC1ayE5DRocBTymKoy2Jc1DIStalkkecyAGZ29u7Tfmy+atP0lHRY/eXr8Z17LS1ahiMudHoe7sZzLvRlKtzo82XTxRg9p7Muw7ZWLkPouNUbwPwnqra8pXCzTfdvPO17WrQeJrv3CYmozhaxy8RFLYydH+7DtXqGo0BPdOYfYJdAvaY0QkAkisfsEgWoERAZ1RNdtvPF/i186j+7/qaLYW7N1+Tv5qr6zDpMPur8TMd5pWlR5sedLyXa+Bw7TRtWtzpao+fcuJt9n7Mpw4yqXIn0nOrt4n4cp5e7u6txLM33bl3fXaejt7WnQWILv3jqiZUt5oBXvE9bEVeKtlsURZVXvmZoiiLBiMQ/hBKZkkXWHWZ2WDYjQEWkQIiABhLNwEDKWBAwQHIwOwA7JRArMa0siRZRYo6zVErYqF1lmSJY4KqUTkTii/wdcySeWWJDzQl0DA2tIIBK1pYkIVtrVwVZQynQqwBBlsJyg+VF4fSQlFTWJLKM1tXdLPN8Mcu2pjp/C3wPtnetNN45tfxX1XDwOJdaIzzqPg/o/vtM29DI3C6sjAjNWGRGs9DGcakOVB5XUcSMJQrRjJYeV6km0TxnOPr7+ITsMkiEgcZAtbEkCaYFkgSyMYDEmluNVrZhy8onGFPaByzkakOXFwy0ntxqMdzZUbicZ1FlxzjvwXq72Yvtq93/AFmJaModfiQ9jpdfiRO9uM/C92f3i92UOvx/gl7FS6/E9bvhiwP7nP8A0z+8PdlDr8f4BWNJ9PiI3b44w/Y+7PzQWirfr8f4CVlR6/Er7t6sWeur3f8AWWrRtBdPiUStaS6fEVfeTEn6SfkEn7voLc/Er9lpnBvDivrgfwJ+0fsFDo82SjbU3uLPEbWx1DhGtyPAj/2dXJhn9XqOY9Uop2trVjylHpW18SyjQozWUvXiGp3mx32593T8sl7vtvk83xNXslH5fXiHbefHfbn3dPyw9323yeb4iVpR+X14gW3ox32593R8sPd9t8nm+JL2Sj8vrxPLvPjvtz7uj5Ye77b5PN8Q9ko/L5viNLvNjeH+3Pu6flh7Bb/L5viQ9ko5+H14gG3qxw/v/wD5U/LE9G23yeb4k/Y6Py+vEY2jt7aNDhHtHEUrf+yq5MoOXLqOY9Upo2dpVjyox3tbXu7+8rp21Cospb3vYuN7cb9ovu0/aWe7LfofiT9ho9HmSG9+N+vX7tYvddv0PxF7DR6H4hW3uxnD6Vev4YjWjLfofiQdlRzv8StxG9eLP0q/diTjo236H4lc7OkunxK+zeHFH6S/kWWqwoLd5lLtafQDG3cV9pl4In7R+w0Pl82EbWn0FpiNpY6hwjXEEoj/ANnVyYZ5ej1HMeqUU7a1qx5Sjva2vd3ltChRqRyo+vEawu8WN5/9Q2Q/Dp+WS9gtvk83xNLtaPy+vE5ZvRjv8Q3u6Pli932z/wBPN8SStKPy+b4gm3ox325PjXT8sPd1t8nm+JF2lH5fN8QZ3pxn2inxrT9oe7bf5fNlTtKXR5nhvXi/rVnxrH7xPRlv0PxI+xUuvxDV73Yv8E+NbfNIvRdv1+P8EvYaXX4/wexe37cQAttWHbL0WFbh18G4v6S23tI27zTlJdWVh92Cqtoe1rJctPVs+8FbiT1dgmo6S6RN5JEGRjIlzIDIskAyR4YwyTygI5lEMTvfMxli1ITtaSRTJirmSM8mQGXXy68ueUCs0+wtiYa/JluduEgtWQoIyPIjs7xOVdXlallOK17HrM069SGpx7zV7V2JRflbdY1QrUhmBQDhzz1JHj7ZzLa8q0uZBZyK2rzp82KzkyOKSgNlhzYyDTjt4QWPaAAMh4zv0nUcc1MZ6jsw5eOfjPUAcywsQEwA6sAHF9HXl15aHKBDeaTYewcFiMnruu4kKs9L+T4hkc8jpqp5Zice6vbmjmMorD2NZ++4x17mtT1Site/WXW8mwqcQRbbaafJqQzjgA4c89eLs19s59leVKOYQjnL6/oZLa5nS5sVnPb9D59tCuhXyoeyxB9OwBeI9oA6vGejouo45qJJ9COxTc2szSXYLiWlhLE6ZDujRUV9kmiqYHLXu64FLRp9hbDwl+TJbYSpVmqbgBGR5EZcj2icq7vK9HKlFY6dZkq1qlPU0u01W19h4e7K6+xqhWpBYFQCueYzzB7/AGzmWt5Vpcyms5IW1epT5sFnJkdoChTlR5Qp9a3h4m78gBkJ6Cl+Zyf/AJMZ6jr0uW9c8Z6iuYywuBPJEGwcaIHhBgEQRE0hrDjWRJS2ArjrGhPYLtGiDORiLMNIFjRMNAgSjEegIHc0RJIRsaNEpMTtMmjNNi7GMztnBAEaXda+vDrZibMzyqrUDVm9Jh3fRnOvoTrONKHayFWEqjVOPaXtG2kxtNmHsTydrqTTlmyMy9JQT1HTwmN2crapGrB5S29Oskrd0JKpF5W8zacp2DqPaQcwAHACSQAbPowILaXO62Kqwq24q3MnSmpVGbMxydh2Dkup75zb+nOu40Ydr9F9Si6hKq4049r9B87dTH0W4axPJ3MrNVkSyMydNRn1Ho+EzKylaVY1YvMVqfTr1Gf2d281Ui8reYwGds6oSldYEZbAeJbMmNENwk8mimQPKBA0e619WGWzE2Zk6VVKo1ZvSYZ8h9HnOdfU513GlDtfovqUV6cqjUI9rL3D7bTG1WYa1BXawLU8ObIzL0lGfUdMs+UyexStasasHmK29IvZnQkqkXlbzJ3PnOydKKwBMBgmjIMjGiJ1RENBUiZYhqvRSfVED2izxoTBNGQZGMR//9k=">
+                <div class="informaçoes">
+                    <p class="País">País: Granada</p>
+                    <p class="capital">Capital: Saint George's</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Guatemala-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Guatemala</p>
+                    <p class="capital">Capital: Cidade da Guatemala</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Haiti-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Haiti</p>
+                    <p class="capital">Capital: Porto Principe</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Honduras-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Honduras</p>
+                    <p class="capital">Capital: Tegucigalpa</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Jamaica-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Jamaica</p>
+                    <p class="capital">Capital: Kingston</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/M%C3%A9xico-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: México</p>
+                    <p class="capital">Capital: Cidade do México</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Nicaragua-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Nicarágua</p>
+                    <p class="capital">Capital: Manágua</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Panama-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Panamá</p>
+                    <p class="capital">Capital: Cidade do Panamá</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Republica_Dominicana-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: República Dominicana</p>
+                    <p class="capital">Capital: Santo Domingo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Santa%20L%C3%BAcia-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Santa Lúcia</p>
+                    <p class="capital">Capital: Castries</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Sao_Cristovao_Nevis-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: São Cristovão e Neves</p>
+                    <p class="capital">Capital: Basseterre</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Sao_Vicente_Granadinas-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: São Vicente e Granadinas</p>
+                    <p class="capital">Capital: Kingstwon</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Trinidad-e-Tobago-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Trinidad e Tobago</p>
+                    <p class="capital">Capital: Porto Espanha</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footercontinentes">
+        <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+    </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Canadá','Estados Unidos','Costa Rica', 'Panamá', 'México'],
+            datasets: [{
+                label: 'IDH - Top 5 Países na América do Norte e Central',
+                data: [0.939, 0.926, 0.810, 0.806, 0.779],
+                backgroundColor: 'rgba(0,212,255,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'IDH',
+                        color: 'white' // Cor do título do eixo y
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo y
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Países',
+                        color: 'white' // Cor do título do eixo x
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo x
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Cor do texto da legenda
+                    }
+                }
+            },
+            onRender: function (chart) {
+                chart.legend.legendItems[0].fontColor = 'white';
+                chart.update();
+            }
+        }
+    });
+
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['EUA', 'México', 'Canadá', 'Dominicana', 'Guatemala'],
+            datasets: [{
+                label: 'PIB - Top 5 Países na América do Norte e Central',
+                data: [28391071, 3751253, 2482814, 299167 ,262115 ],
+                backgroundColor: 'rgba(0,212,255,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'PIB (Milhões de USD)',
+                        color: 'white' // Cor do título do eixo y
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo y
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Países',
+                        color: 'white' // Cor do título do eixo x
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo x
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Cor do texto da legenda
+                    }
+                }
+            },
+            onRender: function (chart) {
+                chart.legend.legendItems[0].fontColor = 'white';
+                chart.update();
+            }
+        }
+    });
+
+
+
+
+
+</script>
+
+</script>

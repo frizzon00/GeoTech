@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Página Inicial</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
+                    class="logo" width="50px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a href="contato.html">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudocuriosidades">
+        <h1 style="color: white ;">Curiosidades Sobre o Mundo</h1>
+        <div class="btnCuri">
+            <button class="contiCuri" onclick="reloadPage()">Mundo</button>
+            <button class="contiCuri" onclick="africa()">África</button>
+            <button class="contiCuri" onclick="norte()">América do Norte e Central</button>
+            <button class="contiCuri" onclick="sul()">América do Sul</button>
+            <button class="contiCuri" onclick="asia()">Ásia</button>
+            <button class="contiCuri" onclick="euro()">Europa</button>
+            <button class="contiCuri" onclick="oce()">Oceânia</button>
+        </div>
+        <div class="curiosidades" id="curiosidades">
+            <h1 class="tituloc">Planeta Terra</h1>
+
+            <div class="cur">
+                <img src="https://f.i.uol.com.br/fotografia/2019/11/13/15736845635dcc85533e341_1573684563_3x2_md.jpg"
+                    class="imgc" alt="">
+                <h2 class="h2c">1. Ponto mais seco da Terra:</h2>
+                <p> O Vale da Morte, localizado na Califórnia, nos Estados Unidos, é conhecido como o lugar mais seco e
+                    quente da América do Norte. Ele tem uma média de menos de 5 centímetros de precipitação anual.</p>
+            </div>
+
+            <div class="cur">
+                <img src="https://s2-galileu.glbimg.com/P539Mwpd_rtEyk51tByFH_5MWNM=/0x0:6000x4000/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_fde5cd494fb04473a83fa5fd57ad4542/internal_photos/bs/2023/N/B/Lph8V2SHOj2RIf2mmnIA/matt-mr-yr7dhehi2te-unsplash.jpg"
+                    class="imge" alt="">
+                <h2 class="h2c">2. Maior deserto não polar:</h2>
+                <p> O deserto do Saara, localizado no norte da África, é o maior deserto quente do mundo, cobrindo uma
+                    área
+                    de aproximadamente 9,2 milhões de quilômetros quadrados. Apesar de sua aridez, o Saara não é
+                    completamente desprovido de vida.</p>
+            </div>
+
+            <div class="cur">
+                <img src="https://g3i5r4x7.rocketcdn.me/wp-content/uploads/2018/11/destaque-1.jpg" class="imgu" alt="">
+                <h2 class="h2c">3. Bacia Amazônica:</h2>
+                <p> A Bacia Amazônica é a maior bacia hidrográfica do mundo em volume de água e área de drenagem. Ela
+                    cobre
+                    uma área de aproximadamente 7 milhões de quilômetros quadrados e abriga a maior floresta tropical do
+                    planeta, a Floresta Amazônica.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function reloadPage() {
+    location.reload(); // Esta função recarrega a página
+}
+
+    function africa() {
+
+        var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+
+        // Define a altura desejada (120vh)
+        var novaAltura = '122vh';
+        conteudoCuriosidades.style.height = novaAltura;
+
+        curiosidades.innerHTML = ` <h1 class="tituloc">África</h1>
+
+<div class="cur">
+    <img src="https://igui-ecologia.s3.amazonaws.com/wp-content/uploads/2018/10/Nilo.jpg"
+        class="imgc" alt="">
+    <h2 class="h2c">1. Rio Nilo:</h2>
+    <p> O Rio Nilo, o mais longo do mundo, tem uma extensão de cerca de 6.650 km. Ele desempenhou um papel crucial na história e no desenvolvimento das civilizações africanas.</p>
+</div>
+
+<div class="cur">
+    <img src="https://thumbs.dreamstime.com/b/vale-do-rift-natural-africano-ilustra%C3%A7%C3%A3o-paisagem-%C3%A1frica-ao-ar-livre-vista-qu%C3%AAnia-leste-natureza-valley-ai-gerada-290677305.jpg"
+        class="imge" alt="">
+    <h2 class="h2c">2. Grande Vale do Rift:</h2>
+    <p>Este é um grande sistema de fendas geológicas que se estende por cerca de 6.000 km, atravessando vários países africanos. É um local de intensa atividade vulcânica e sísmica.</p>
+</div>
+
+<div class="cur">
+    <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/zebras-kilimanjaro-africa.jpg?w=1600&h=900" class="imgu" alt="">
+    <h2 class="h2c">3. Monte Kilimanjaro:</h2>
+    <p> Localizado na Tanzânia, é a montanha mais alta da África, com uma altura de 5.895 metros acima do nível do mar. Apesar de sua proximidade com o equador, o Kilimanjaro tem neves permanentes em seus picos.</p>
+</div> `}
+
+    function norte() {
+
+        var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+
+        // Define a altura desejada (120vh)
+        var novaAltura = '134vh';
+        conteudoCuriosidades.style.height = novaAltura;
+
+        curiosidades.innerHTML = ` <h1 class="tituloc">América do Norte e Central</h1>
+
+<div class="cur">
+<img src="https://www.grandcanyongrandhotel.com/content/uploads/2023/05/home-page-9-1920x1080.jpg"
+    class="imgc" alt="">
+<h2 class="h2c">1. Grand Canyon:</h2>
+<p> Este desfiladeiro íngreme e profundo, localizado no estado do Arizona, nos Estados Unidos, é uma das maravilhas naturais mais impressionantes do mundo, com formações rochosas coloridas que remontam a milhões de anos.</p>
+</div>
+
+<div class="cur">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_BOmoSdPeMpUh6t_XhYEDkmodwvsa1KFYqmW4btoljw&s"
+    class="imge" alt="">
+<h2 class="h2c">2. Cataratas do Niágara:</h2>
+<p>Situadas na fronteira entre o Canadá e os Estados Unidos, as Cataratas do Niágara são um dos destinos turísticos mais populares da América do Norte, conhecidas por sua impressionante queda d'água e beleza cênica.</p>
+</div>
+
+<div class="cur">
+<img src="https://www.viagensecaminhos.com/wp-content/uploads/2018/04/canal-do-panama.jpg" class="imgu" alt="">
+<h2 class="h2c">3. O Canal do Panamá:</h2>
+<p> Uma das vias navegáveis mais importantes do mundo, o Canal do Panamá conecta o Oceano Atlântico ao Oceano Pacífico, permitindo que navios atravessem entre os dois oceanos sem ter que dar a volta pela América do Sul.</p>
+</div> `
+
+    }
+
+
+    function sul() {
+
+        var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+
+        // Define a altura desejada (120vh)
+        var novaAltura = '134vh';
+        conteudoCuriosidades.style.height = novaAltura;
+
+        curiosidades.innerHTML = ` <h1 class="tituloc">América do Sul</h1>
+
+<div class="cur">
+<img src="https://g3i5r4x7.rocketcdn.me/wp-content/uploads/2020/09/cordilheira-dos-andes-o-que-e-formacao-caracteristicas-e-curiosidades.jpg"
+class="imgc" alt="">
+<h2 class="h2c">1. Cordilheira dos Andes:</h2>
+<p>Esta é a cordilheira mais longa do mundo, estendendo-se por cerca de 7.000 km ao longo da costa oeste da América do Sul. Ela abriga algumas das montanhas mais altas do continente, incluindo o Monte Aconcágua, o pico mais alto fora da Ásia.</p>
+</div>
+
+<div class="cur">
+<img src="https://www.trilhaseaventuras.com.br/wp-content/uploads/2014/01/atacama-lago-1280x720.jpg"
+class="imge" alt="">
+<h2 class="h2c">2. Deserto do Atacama:</h2>
+<p>Localizado principalmente no Chile, o Deserto do Atacama é o deserto mais seco do mundo. Apesar de sua aridez extrema, ele abriga uma variedade surpreendente de paisagens, incluindo lagunas salgadas, geysers e vulcões.</p>
+</div>
+
+<div class="cur">
+<img src="https://www.peruforless.com/images/blog/machu-picchu-ruins.jpg" class="imgu" alt="">
+<h2 class="h2c">3. Machu Picchu:</h2>
+<p>Esta cidade inca perdida nas montanhas dos Andes, no Peru, é uma das atrações turísticas mais famosas da América do Sul. Construída no século XV e redescoberta no século XX, é um marco arqueológico fascinante.</p>
+</div> `
+
+    }
+
+    function asia() {
+
+var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+
+// Define a altura desejada (120vh)
+var novaAltura = '132vh';
+conteudoCuriosidades.style.height = novaAltura;
+
+curiosidades.innerHTML = ` <h1 class="tituloc">Ásia</h1>
+
+<div class="cur">
+<img src="https://img.freepik.com/fotos-premium/tigre-de-bengala-branco-olhando-para-a-camera-na-florestadia-mundial-da-vida-selvagem_1962-2632.jpg"
+class="imgc" alt="">
+<h2 class="h2c">1. Tigre de Bengala:</h2>
+<p> Esta é uma das subespécies de tigre mais reconhecidas e está principalmente presente na Índia, Bangladesh, Nepal e Butão. É uma espécie ameaçada de extinção devido à perda de habitat e à caça furtiva.
+</p>
+</div>
+
+<div class="cur">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCB2KbDAzdvWckGKDbRXHLAbE6pSFIBUXn8GPv7AlIJQ&s"
+class="imge" alt="">
+<h2 class="h2c">2. Monte Everest:</h2>
+<p>Localizado na fronteira entre o Nepal e o Tibete, o Monte Everest é a montanha mais alta do mundo, com uma altura de 8.848 metros. É um destino icônico para alpinistas e aventureiros de todo o mundo.</p>
+</div>
+
+<div class="cur">
+<img src="https://aventurasnahistoria.uol.com.br/media/_versions/capa_great_wall_of_china_history_widelg.jpeg" class="imgu" alt="">
+<h2 class="h2c">3. Muralha da China:</h2>
+<p>Esta impressionante estrutura defensiva se estende por mais de 21.000 quilômetros através do norte da China. Construída ao longo de vários séculos, é uma das maravilhas arquitetônicas mais reconhecidas do mundo.</p>
+</div> `
+
+}
+
+function euro() {
+
+var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+
+// Define a altura desejada (120vh)
+var novaAltura = '131vh';
+conteudoCuriosidades.style.height = novaAltura;
+
+curiosidades.innerHTML = ` <h1 class="tituloc">Europa</h1>
+
+<div class="cur">
+<img src="https://media-server.clubmed.com/image/jpeg/1024/auto/crop/center/70/https%3A%2F%2Fns.clubmed.com%2Faml%2FBrazil%2F2023%2FVNN-ARTIGOS%2FNOVEMBRO%2F16112023-1%2Fgrenoble.jpg"
+class="imgc" alt="">
+<h2 class="h2c">1. Alpes:</h2>
+<p>Esta cadeia de montanhas se estende por oito países europeus, incluindo França, Suíça, Áustria, Itália e Alemanha. Os Alpes oferecem paisagens deslumbrantes, atividades ao ar livre e resorts de esqui de renome mundial.
+</p>
+</div>
+
+<div class="cur">
+<img src="https://images.educamaisbrasil.com.br/content/banco_de_imagens/guia-de-estudo/D/coliseu-estrutura-roma.jpg"
+class="imge" alt="">
+<h2 class="h2c">2. Coliseu de Roma:</h2>
+<p> Este antigo anfiteatro localizado em Roma, Itália, é uma das estruturas mais emblemáticas da Europa. Construído durante o Império Romano, o Coliseu é um dos locais mais visitados do mundo.</p>
+</div>
+
+<div class="cur">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/View_of_the_Acropolis_Athens_%28pixinn.net%29.jpg" class="imgu" alt="">
+<h2 class="h2c">3. Acrópole de Atenas:</h2>
+<p> Um dos locais mais famosos da Grécia, a Acrópole é uma colina rochosa que abriga alguns dos mais importantes monumentos da Antiguidade, incluindo o Parthenon, o Erecteion e o Templo de Atena Nice. É um Patrimônio Mundial da UNESCO e oferece uma vista deslumbrante da cidade de Atenas.</p>
+</div> `
+
+}
+
+function oce() {
+
+var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+
+// Define a altura desejada (120vh)
+var novaAltura = '138vh';
+conteudoCuriosidades.style.height = novaAltura;
+
+curiosidades.innerHTML = ` <h1 class="tituloc">Oceânia</h1>
+
+<div class="cur">
+<img src="https://rotadocanguru.com.br/wp-content/uploads/2019/11/vista-area-grande-barreira-coral.jpg"
+class="imgc" alt="">
+<h2 class="h2c">1. Great Barrier Reef (Grande Barreira de Corais):</h2>
+<p>Localizado ao largo da costa nordeste da Austrália, a Grande Barreira de Corais é o maior sistema de recifes de coral do mundo e é reconhecido como um Patrimônio Mundial da UNESCO. É um paraíso para mergulhadores, oferecendo uma visão incrível da vida marinha e das deslumbrantes formações de coral.
+</p>
+</div>
+
+<div class="cur">
+<img src="https://p2.trrsf.com/image/fget/cf/800/450/middle/images.terra.com/2016/05/06/498861.jpg"
+class="imge" alt="">
+<h2 class="h2c">2. Ilhas Cook:</h2>
+<p>Um grupo de ilhas no Pacífico Sul, as Ilhas Cook são conhecidas por suas praias intocadas, lagoas azul-turquesa e rica cultura polinésia. Rarotonga, a maior ilha, oferece oportunidades para caminhadas na selva, passeios de bicicleta e explorar as aldeias locais, enquanto Aitutaki é famosa por sua laguna espetacular.</p>
+</div>
+
+<div class="cur">
+<img src="https://uluru-australia.com/wp-content/themes/uluru/images/fader1.jpg" class="imgu" alt="">
+<h2 class="h2c">3. Uluru (Ayers Rock):</h2>
+<p>Este icônico monólito de arenito está localizado no coração da Austrália, no Parque Nacional Uluru-Kata Tjuta. Uluru é sagrado para os povos aborígenes australianos e é um dos locais mais reconhecidos da Austrália, conhecido por sua cor avermelhada e importância cultural.</p>
+</div> `
+
+}
+</script>

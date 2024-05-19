@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Página Europa</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="bodyaf">
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
+                    class="logo" width="50px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="../index.html">Início</a>
+                </li>
+                <li>
+                    <a href="../curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="../jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a href="../contato.html">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudograf">
+        <h1 class="titulograf">Continente Europeu</h1>
+        <div class="grafico">
+            <canvas id="myChart" class="chart"></canvas>
+            <canvas id="myChart2" class="chart"></canvas>
+        </div>
+        <br>
+        <h1 class="titulograf">Países Europeus</h1>
+        <div class="Países">
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Albania-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Albania</p>
+                    <p class="capital">Capital: Tirana</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Alemanha-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Alemanha</p>
+                    <p class="capital">Capital: Berlim</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Andorra-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Andorra</p>
+                    <p class="capital">Capital: Andorra-a-Velha</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/fotos/Arm%C3%AAnia-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Armênia</p>
+                    <p class="capital">Capital: Erevã</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Austria-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Áustria</p>
+                    <p class="capital">Capital: Viena</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Azerbaidjao-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Azerbaijâo</p>
+                    <p class="capital">Capital: Baku</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.estudopratico.com.br/wp-content/uploads/2017/02/significado-da-bandeira-da-bielorrussia.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Belarus</p>
+                    <p class="capital">Capital: Minsk</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/B%C3%A9lgica-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Bélgica</p>
+                    <p class="capital">Capital: Bruxelas</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/bosnia%202-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Bósnia e Herzegovina</p>
+                    <p class="capital">Capital: Sarajevo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Bulgaria-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Bulgária</p>
+                    <p class="capital">Capital: Sófia</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Chipre-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Chipre</p>
+                    <p class="capital">Capital: Nicósia</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Cro%C3%A1cia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Croácia</p>
+                    <p class="capital">Capital: Zagreb</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Dinamarca-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Dinamarca</p>
+                    <p class="capital">Capital: Copenhague</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Eslovaquia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Eslováquia</p>
+                    <p class="capital">Capital: Bratislava</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Eslov%C3%AAnia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Eslovênia</p>
+                    <p class="capital">Capital: Liubliana</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Espanha-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Espanha</p>
+                    <p class="capital">Capital: Madrid</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/est%C3%B4nia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Estônia</p>
+                    <p class="capital">Capital: Tallinn</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Finl%C3%A2ndia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Finlândia</p>
+                    <p class="capital">Capital: Helsinque</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Franca-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: França</p>
+                    <p class="capital">Capital: Paris</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Georgia-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Geórgia</p>
+                    <p class="capital">Capital: Tblissi</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Grecia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Grécia</p>
+                    <p class="capital">Capital: Atenas</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Hungria-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Hungria</p>
+                    <p class="capital">Capital: Budapeste</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Irlanda-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Irlanda</p>
+                    <p class="capital">Capital: Dublin</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Islandia-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Islândia</p>
+                    <p class="capital">Capital: Reykjavik</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Italia-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Itália</p>
+                    <p class="capital">Capital: Roma</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Kosovo-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Kosovo</p>
+                    <p class="capital">Capital: Pristina</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Letonia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Letônia</p>
+                    <p class="capital">Capital: Riga</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="data:image/jpeg;base64,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">
+                <div class="informaçoes">
+                    <p class="País">País: Liechtenstein</p>
+                    <p class="capital">Capital: Vaduz</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/litu%C3%A2nia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Lituânia</p>
+                    <p class="capital">Capital: Vilnius</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Luxemburgo-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Luxemburgo</p>
+                    <p class="capital">Capital: Luxemburgo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://img.freepik.com/vetores-premium/bandeira-da-macedonia-acenando-abstrato_183326-112.jpg?size=626&ext=jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Macedônia do Norte</p>
+                    <p class="capital">Capital: Skopje</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Malta-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Malta</p>
+                    <p class="capital">Capital: Valeta</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://img.freepik.com/vetores-premium/bandeira-da-moldavia-ao-vento-parte-de-uma-serie-bandeira-da-moldavia_126712-269.jpg?size=626&ext=jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Moldávia</p>
+                    <p class="capital">Capital: Chisinau</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Monaco-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Mônaco</p>
+                    <p class="capital">Capital: Mônaco</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://img.freepik.com/fotos-premium/bandeira-de-montenegro-como-pano-de-fundo_454892-1320.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Montenegro</p>
+                    <p class="capital">Capital: Podgorica</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Noruega-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Noruega</p>
+                    <p class="capital">Capital: Oslo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Holanda-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Países Baixos</p>
+                    <p class="capital">Capital: Amsterdã</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Pol%C3%B4nia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Polônia</p>
+                    <p class="capital">Capital: Varsóvia</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Portugal-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Portugal</p>
+                    <p class="capital">Capital: Lisboa</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/reino-unido-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Reino Unido</p>
+                    <p class="capital">Capital: Londres</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Rep%C3%BAblica-Tcheca-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: República Tcheca</p>
+                    <p class="capital">Capital: Praga</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Rom%C3%AAnia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Romênia</p>
+                    <p class="capital">Capital: Bucareste</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Russia-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Rússia</p>
+                    <p class="capital">Capital: Moscou</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/San_Marino-800x533.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: San Marino</p>
+                    <p class="capital">Capital: San Marino</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Servia-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Sérvia</p>
+                    <p class="capital">Capital: Belgrado</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Su%C3%A9cia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Suécia</p>
+                    <p class="capital">Capital: Estocolmo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Su%C3%AD%C3%A7a-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Suíça</p>
+                    <p class="capital">Capital: Berna</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Turquia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Turquia</p>
+                    <p class="capital">Capital: Ancara</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Ucrania-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Ucrânia</p>
+                    <p class="capital">Capital: Kiev</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Vaticano-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Vaticano</p>
+                    <p class="capital">Capital: Cidade do Vaticano</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="footercontinentes">
+            <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+        </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+   const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [ 'Suiça', 'Noruega', 'Islândia', 'Dinamarca', 'Suécia'],
+        datasets: [{
+            label: 'IDH - Top 5 Países na Europa',
+            data: [0.967, 0.966, 0.959, 0.952, 0.952],
+            backgroundColor: 'rgba(0,212,255,1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'IDH',
+                    color: 'white' // Cor do título do eixo y
+                },
+                ticks: {
+                    color: 'white' // Cor dos valores do eixo y
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Países',
+                    color: 'white' // Cor do título do eixo x
+                },
+                ticks: {
+                    color: 'white' // Cor dos valores do eixo x
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Cor do texto da legenda
+                }
+            }
+        },
+        onRender: function (chart) {
+            chart.legend.legendItems[0].fontColor = 'white';
+            chart.update();
+        }
+    }
+});
+
+
+const ctx2 = document.getElementById('myChart2');
+
+new Chart(ctx2, {
+type: 'bar',
+data: {
+    labels: ['Alemanha', 'Reino Unido', 'França', 'Itália', 'Rússia'],
+    datasets: [{
+        label: 'PIB - Top 5 Países na Europa',
+        data: [3863334, 2829106, 2715518, 2001244, 1699877],
+        backgroundColor: 'rgba(0,212,255,1)',
+        borderWidth: 1
+    }]
+},
+options: {
+    scales: {
+        y: {
+            beginAtZero: true,
+            title: {
+                display: true,
+                text: 'PIB (Milhões de USD)',
+                color: 'white' // Cor do título do eixo y
+            },
+            ticks: {
+                color: 'white' // Cor dos valores do eixo y
+            }
+        },
+        x: {
+            title: {
+                display: true,
+                text: 'Países',
+                color: 'white' // Cor do título do eixo x
+            },
+            ticks: {
+                color: 'white' // Cor dos valores do eixo x
+            }
+        }
+    },
+    plugins: {
+        legend: {
+            labels: {
+                color: 'white' // Cor do texto da legenda
+            }
+        }
+    },
+    onRender: function (chart) {
+        chart.legend.legendItems[0].fontColor = 'white';
+        chart.update();
+    }
+}
+});
+
+
+
+
+
+</script>
+
+</script>

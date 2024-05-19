@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+
+<body>
+
+    <div class="start_btn"> <lord-icon src="https://cdn.lordicon.com/xahuqqcs.json" trigger="loop" stroke="bold"
+            delay="600" state="hover-rotate-up-to-down" colors="primary:#ffffff,secondary:#30c9e8"
+            style="width:250px;height:200px">
+        </lord-icon><button class="jogar">Jogar</button>
+        <a href="../SitePrincipal/jogos.html"><button class="voltar">Voltar</button></a>
+    </div>
+
+
+    <div class="info_box">
+        <div class="info-title"><span>Regras do Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. Você terá apenas <span>15 segundos</span> para cada pergunta.</div>
+            <div class="info">2. Uma vez que você selecionar sua resposta, não poderá desfazê-la.</div>
+            <div class="info">3. Você não pode selecionar nenhuma opção após o término do tempo.</div>
+            <div class="info">4. Você não pode sair do quiz enquanto estiver jogando.</div>
+        </div>
+
+        <div class="buttons">
+            <button class="quit">Sair do Quiz</button>
+            <button class="restart">Continuar</button>
+        </div>
+    </div>
+
+
+    <div class="quiz_box">
+        <header>
+            <div class="title">GeoTech - Quiz</div>
+            <div style="text-align: center;">
+                <p style="padding-bottom: 10px;" id="waqt"></p>
+                <p id="din"></p>
+            </div>
+            <div class="timer">
+                <div class="time_left_txt">Tempo restante</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+
+            </div>
+            <div class="option_list">
+
+            </div>
+        </section>
+
+
+        <footer>
+            <div class="total_que">
+
+            </div>
+            <button class="next_btn">Proxima Questão</button>
+        </footer>
+    </div>
+
+
+    <div class="result_box">
+        <div class="icon" id="icon">
+            <lord-icon src="https://cdn.lordicon.com/cqofjexf.json" trigger="loop"
+                colors="primary:#242424,secondary:#30c9e8,tertiary:#30e849" style="width:250px;height:250px">
+            </lord-icon>
+        </div>
+        <div class="complete_text">Você completou o quiz!</div>
+        <div class="score_text">
+
+        </div>
+        <div class="buttons">
+            <button class="restart">Refazer o Quiz</button>
+            <a href="../SitePrincipal/index.html"><button class="quit">Ir Estudar!</button></a>
+        </div>
+    </div>
+
+
+    <script src="questions.js"></script>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+</html>

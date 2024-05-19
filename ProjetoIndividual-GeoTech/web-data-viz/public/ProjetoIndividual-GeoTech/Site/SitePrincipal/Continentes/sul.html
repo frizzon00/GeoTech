@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Página América do Sul</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="bodyaf">
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
+                    class="logo" width="50px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="../index.html">Início</a>
+                </li>
+                <li>
+                    <a href="../curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="../jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a href="../contato.html">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudograf">
+        <h1 class="titulograf">Continente Sul Americano</h1>
+        <div class="grafico">
+            <canvas id="myChart" class="chart"></canvas>
+            <canvas id="myChart2" class="chart"></canvas>
+        </div>
+        <br>
+        <h1 class="titulograf">Países Sul Americanos</h1>
+        <div class="Países">
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Argentina-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Argentina</p>
+                    <p class="capital">Capital: Buenos Aires</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Bol%C3%ADvia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Bolívia</p>
+                    <p class="capital">Capital: Sucre</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Brasil-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Brasil</p>
+                    <p class="capital">Capital: Brasilia</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Chile-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Chile</p>
+                    <p class="capital">Capital: Santiago</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Colombia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Colômbia</p>
+                    <p class="capital">Capital: Bogotá</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Equador-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Equador</p>
+                    <p class="capital">Capital: Quito</p>
+                </div>
+            </div>
+
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Guiana-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Guiana</p>
+                    <p class="capital">Capital: Georgetown</p>
+                </div>
+            </div>
+
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Paraguai-1-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Paraguai</p>
+                    <p class="capital">Capital: Assunção</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Peru-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Peru</p>
+                    <p class="capital">Capital: Lima</p>
+                </div>
+            </div>
+
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Suriname-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Suriname</p>
+                    <p class="capital">Capital: Paramaribo</p>
+                </div>
+            </div>
+            
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Uruguay-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Uruguai</p>
+                    <p class="capital">Capital: Montevidéu</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Venezuela-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Venezuela</p>
+                    <p class="capital">Capital: Caracas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footercontinentes">
+        <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+    </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Chile', 'Argentina', 'Uruguai', 'Colômbia', 'Brasil'],
+            datasets: [{
+                label: 'IDH - Top 5 Países na América Latina',
+                data: [0.851, 0.845, 0.840, 0.767, 0.758],
+                backgroundColor: 'rgba(0,212,255,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'IDH',
+                        color: 'white' // Cor do título do eixo y
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo y
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Países',
+                        color: 'white' // Cor do título do eixo x
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo x
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Cor do texto da legenda
+                    }
+                }
+            },
+            onRender: function (chart) {
+                chart.legend.legendItems[0].fontColor = 'white';
+                chart.update();
+            }
+        }
+    });
+
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Brasil', 'Argentina', 'Colômbia', 'Chile', 'Peru'],
+            datasets: [{
+                label: 'PIB - Top 5 Países na América Latina',
+                data: [2140000, 636000, 435000, 411000, 326000],
+                backgroundColor: 'rgba(0,212,255,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'PIB (Milhões de USD)',
+                        color: 'white' // Cor do título do eixo y
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo y
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Países',
+                        color: 'white' // Cor do título do eixo x
+                    },
+                    ticks: {
+                        color: 'white' // Cor dos valores do eixo x
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Cor do texto da legenda
+                    }
+                }
+            },
+            onRender: function (chart) {
+                chart.legend.legendItems[0].fontColor = 'white';
+                chart.update();
+            }
+        }
+    });
+
+
+
+
+
+</script>
+
+</script>

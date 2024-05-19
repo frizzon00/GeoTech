@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Página África</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="principal">
+                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
+                    class="logo" width="50px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="../index.html">Início</a>
+                </li>
+                <li>
+                    <a href="../curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="../jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a href="../contato.html">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudograf">
+        <h1 class="titulograf">Continente Africano</h1>
+        <div class="grafico">
+            <canvas id="myChart" class="chart"></canvas>
+            <canvas id="myChart2" class="chart"></canvas>
+        </div>
+        <br>
+        <h1 class="titulograf">Países Africanos</h1>
+        <div class="Países">
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Africa-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: África do Sul</p>
+                    <p class="capital">Capital: Cidade do Cabo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Angola-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Angola</p>
+                    <p class="capital">Capital: Luanda</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Argelia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Argélia</p>
+                    <p class="capital">Capital: Argel</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Benin-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Benin</p>
+                    <p class="capital">Capital: Porto Novo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Botswana-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Botsuana</p>
+                    <p class="capital">Capital: Gaborone</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Burkina_Faso-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Burkina Faso</p>
+                    <p class="capital">Capital: Ouagadougou</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Burundi-500x333.png">
+                <div class="informaçoes">
+                    <p class="País">País: Burundi</p>
+                    <p class="capital">Capital: Gitega</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Cabo-Verde-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Cabo Verde</p>
+                    <p class="capital">Capital: Praia</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Camaroes-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Camarões</p>
+                    <p class="capital">Capital: Yaoundé</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Chade-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Chade</p>
+                    <p class="capital">Capital: N'djamena</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Comores-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Comores</p>
+                    <p class="capital">Capital: Moroni</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Costa-do-Marfim-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Costa do Marfim</p>
+                    <p class="capital">Capital: Abidjan</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Djibuti-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Djibouti</p>
+                    <p class="capital">Capital: Djibouti</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Egito-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Egito</p>
+                    <p class="capital">Capital: Cairo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Eritr%C3%A9ia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Eritréia</p>
+                    <p class="capital">Capital: Asmara</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Eti%C3%B3pia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Etiópia</p>
+                    <p class="capital">Capital: Adis Abeba</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Gabao-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Gabão</p>
+                    <p class="capital">Capital: Lebreville</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Gambia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Gâmbia</p>
+                    <p class="capital">Capital: Banjul</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Gana-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Gana</p>
+                    <p class="capital">Capital: Acra</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Guine-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Guiné</p>
+                    <p class="capital">Capital: Conacri</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Guin%C3%A9-Bissau-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Guiné-Bissau</p>
+                    <p class="capital">Capital: Bissau</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Guine_Equatorial-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Guiné Equatorial</p>
+                    <p class="capital">Capital: Malabo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Mauricio-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Ilhas Maurícios</p>
+                    <p class="capital">Capital: Porto Luis</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Lesoto-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Lesoto</p>
+                    <p class="capital">Capital: Maseru</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/lib%C3%A9ria-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Libéria</p>
+                    <p class="capital">Capital: Monróvia</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Libia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Libía</p>
+                    <p class="capital">Capital: Tripoli</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Madagascar-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Madagascar</p>
+                    <p class="capital">Capital: Antananarivo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Malawi-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Malawi</p>
+                    <p class="capital">Capital: Lilongwe</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Mali-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Mali</p>
+                    <p class="capital">Capital: Bamako</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Marrocos-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Marrocos</p>
+                    <p class="capital">Capital: Rabat</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Mauritania-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Mauritania</p>
+                    <p class="capital">Capital: Nouakchott</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Mocambique-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Moçambique</p>
+                    <p class="capital">Capital: Maputo</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Namibia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Namíbia</p>
+                    <p class="capital">Capital: Windhoek</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Niger-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Níger</p>
+                    <p class="capital">Capital: Niamey</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Nig%C3%A9ria-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Nígeria</p>
+                    <p class="capital">Capital: Abuja</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Quenia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Quênia</p>
+                    <p class="capital">Capital: Nairóbi</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Rep-do-Congo-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: República Centro-Africana</p>
+                    <p class="capital">Capital: Bangui</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Rep-Democr%C3%A1tica-do-Congo-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: República Democrática do Congo</p>
+                    <p class="capital">Capital: Kinshasa</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Rep-do-Congo-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: República do Congo</p>
+                    <p class="capital">Capital: Brazzaville</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Ruanda-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Ruanda</p>
+                    <p class="capital">Capital: Kigali</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Sao_Tome_Principe-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: São Tomé e Principe</p>
+                    <p class="capital">Capital: São Tomé</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Senegal-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Senegal</p>
+                    <p class="capital">Capital: Dacar</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Serra_Leoa-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Serra Leoa</p>
+                    <p class="capital">Capital: Freetown</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Seychelles-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Seychelles</p>
+                    <p class="capital">Capital: Victoria</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Somalia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Somália</p>
+                    <p class="capital">Capital: Mogadíscio</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Swazilandia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Suazilândia</p>
+                    <p class="capital">Capital: Lobamba</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Sud%C3%A3o-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Sudão</p>
+                    <p class="capital">Capital: Cartum</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Sudao_do_Sul-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Sudão do Sul</p>
+                    <p class="capital">Capital: Juba</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Tanzania-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Tanzânia</p>
+                    <p class="capital">Capital: Dodoma</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Togo-1111x740.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Togo</p>
+                    <p class="capital">Capital: Lomé</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Tunisia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Tunísia</p>
+                    <p class="capital">Capital: Tunes</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Uganda-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Uganda</p>
+                    <p class="capital">Capital: Kampala</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Zambia-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Zâmbia</p>
+                    <p class="capital">Capital: Lusaka</p>
+                </div>
+            </div>
+            <div class="cardp">
+                <img class="bandeira"
+                    src="https://www.eccobandeiras.com.br/image/cache/catalog/antigas/Zimbabwe-500x333.jpg">
+                <div class="informaçoes">
+                    <p class="País">País: Zimbabue</p>
+                    <p class="capital">Capital: Harare</p>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+        <div class="footercontinentes">
+            <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+        </div>
+</body>
+
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Ilhas Maurício', 'Seychelles', 'Argélia', 'Tunísia', 'Botswana'],
+        datasets: [{
+            label: 'IDH - Top 5 Países na África',
+            data: [0.801, 0.797, 0.748, 0.739, 0.717], // Valores em milhões de dólares
+            backgroundColor: 'rgba(0,212,255,1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'IDH',
+                    color: 'white' // Cor do título do eixo y
+                },
+                ticks: {
+                    color: 'white' // Cor dos valores do eixo y
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Países',
+                    color: 'white' // Cor do título do eixo x
+                },
+                ticks: {
+                    color: 'white' // Cor dos valores do eixo x
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Cor do texto da legenda
+                }
+            }
+        },
+        onRender: function (chart) {
+            chart.legend.legendItems[0].fontColor = 'white';
+            chart.update();
+        }
+    }
+});
+
+const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['Egito', 'África do Sul', 'Argélia', 'Nigéria', 'Marrocos'],
+        datasets: [{
+            label: 'PIB - Top 5 Países na África',
+            data: [900675, 703709, 298448, 216245, 210875], // Valores em milhões de dólares
+            backgroundColor: 'rgba(0,212,255,1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'PIB (Milhoês de USD)',
+                    color: 'white' // Cor do título do eixo y
+                },
+                ticks: {
+                    color: 'white' // Cor dos valores do eixo y
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Países',
+                    color: 'white' // Cor do título do eixo x
+                },
+                ticks: {
+                    color: 'white' // Cor dos valores do eixo x
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Cor do texto da legenda
+                }
+            }
+        },
+        onRender: function (chart) {
+            chart.legend.legendItems[0].fontColor = 'white';
+            chart.update();
+        }
+    }
+});
+
+
+
+
+</script>
+
+</script>

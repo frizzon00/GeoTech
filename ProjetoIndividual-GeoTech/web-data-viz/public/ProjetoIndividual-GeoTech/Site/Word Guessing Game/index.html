@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acerte as Bandeiras</title>
+    <link rel="stylesheet" href="style.css" /> 
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  </head>
+  <body>
+    <div class="tela"><a href="../SitePrincipal/jogos.html"><button class="voltarInicio">Voltar</button></a><h1 style="color: white;margin-top: 20px;">Qual o País?</h1></div>
+    <div class="wrapper">
+      <div class="hint-ref"></div>
+      <div id="user-input-section"></div>
+      <div id="message"></div>
+      <div id="letter-container"></div>
+    </div>
+    <div class="controls-container">
+      <div id="result"></div>
+      <div id="word"></div>
+      <lord-icon
+      src="https://cdn.lordicon.com/xahuqqcs.json"
+      trigger="loop"
+      stroke="bold"
+      delay="600"
+      state="hover-rotate-up-to-down"
+      colors="primary:#ffffff,secondary:#30c9e8"
+      style="width:250px;height:200px">
+  </lord-icon>
+      <button id="start">Jogar</button>
+      <a href="../SitePrincipal/jogos.html"><button class="voltar">Voltar</button></a>
+    </div>
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>

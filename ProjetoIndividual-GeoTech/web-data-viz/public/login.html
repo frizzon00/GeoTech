@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Página Login</title>
+    <link rel="stylesheet" href="./css/styleinicio.css">
+    <script src="./js/sessao.js"></script>
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
+                    class="logo" width="50px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbarinicio">
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="sobre.html">Sobre</a>
+                </li>
+                <li>
+                    <a href="onu.html">Objetivos</a>
+                </li>
+                <li>
+                    <a href="contato.html">Contato</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li>
+                    <a href="cadastro.html">Cadastro</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudologin">
+        <div class="tudologin">
+            <div class="contato">
+                <h2 class="tituloh2">Entre na GeoTech:</h2>
+                <div class="form">
+                    <div class="login">
+                        <div class="formlogin">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email_input" name="email" placeholder="Ex: xxxx@xxx.com" required>
+
+                            <label for="email">Senha:</label>
+                            <input type="password" id="senha_input" name="password" placeholder="Insira sua senha"
+                                required>
+
+                            <div class="enviarlogin">
+                                <button class="entrar" onclick="entrar()">Entrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+    </div><a href=""></a>
+</body>
+
+</html>
+
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha Todos os Campos"
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+
+
+                    window.location = "http://localhost:3333/ProjetoIndividual-GeoTech/Site/SitePrincipal/index.html";
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>
