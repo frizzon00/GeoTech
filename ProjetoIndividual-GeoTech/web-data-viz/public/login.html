@@ -74,67 +74,72 @@
     <div class="footer">
         <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
     </div><a href=""></a>
-</body>
+</body> 
+
+
 
 </html>
 
 
 <script>
 
+function entrar() {
 
-    function entrar() {
+var emailVar = email_input.value;
+var senhaVar = senha_input.value;
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-
-        if (emailVar == "" || senhaVar == "") {
+if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha Todos os Campos"
             return false;
         }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+console.log("FORM LOGIN: ", emailVar);
+console.log("FORM SENHA: ", senhaVar);
 
-            if (resposta.ok) {
-                console.log(resposta);
+fetch("/usuarios/autenticar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    })
+}).then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
+    if (resposta.ok) {
+        console.log(resposta);
 
+        resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.ID_USUARIO = json.idUsuario;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.CONTINENTE_USUARIO = json.continente;
 
-                    window.location = "http://localhost:3333/ProjetoIndividual-GeoTech/Site/SitePrincipal/index.html";
+            window.location = "./ProjetoIndividual-GeoTech/Site/SitePrincipal/index.html";
 
-                });
+        });
 
-            } else {
+    } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+        console.log("Houve um erro ao tentar realizar o login!");
 
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
+        resposta.text().then(texto => {
+            console.error(texto);
+            finalizarAguardar(texto);
+        });
     }
+
+}).catch(function (erro) {
+    console.log(erro);
+})
+
+return false;
+}
+
 </script>

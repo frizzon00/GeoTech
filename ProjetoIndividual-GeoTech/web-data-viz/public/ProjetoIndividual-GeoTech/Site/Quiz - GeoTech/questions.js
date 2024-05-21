@@ -100,12 +100,12 @@ let questions = [{
   },
   {
     numb: 10,
-    question: "(IMPOSSÍVEL) Qual o IDH da Irlanda?",
-    answer: "0.947",
+    question: "(IMPOSSÍVEL) Qual o IDH da Islândia?",
+    answer: "0.959",
     options: [
       "0.947",
       "0.931",
-      "0.918",
+      "0.959",
       "0.966"
     ]
   }
