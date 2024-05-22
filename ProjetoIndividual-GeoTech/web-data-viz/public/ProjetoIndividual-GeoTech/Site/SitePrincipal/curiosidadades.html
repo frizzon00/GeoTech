@@ -28,7 +28,16 @@
                     <a href="jogos.html">Jogos</a>
                 </li>
                 <li>
+                    <a href="ranking.html">Ranking</a>
+                </li>
+                <li>
                     <a href="contato.html">Contato</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li onclick="sair()">
+                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
                 </li>
             </ul>
         </div>
@@ -83,9 +92,20 @@
 </html>
 
 <script>
+
+    const nomeUser = sessionStorage.NOME_USUARIO;
+    const idUser = sessionStorage.ID_USUARIO;
+    const emailUser = sessionStorage.EMAIL_USUARIO;
+    const continenteUser = sessionStorage.CONTINENTE_USUARIO;
+
+    function sair() {
+        sessionStorage.clear();
+        window.location = "../../../index.html";
+    }
+
     function reloadPage() {
-    location.reload(); // Esta função recarrega a página
-}
+        location.reload(); // Esta função recarrega a página
+    }
 
     function africa() {
 
@@ -184,13 +204,13 @@ class="imge" alt="">
 
     function asia() {
 
-var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+        var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
 
-// Define a altura desejada (120vh)
-var novaAltura = '132vh';
-conteudoCuriosidades.style.height = novaAltura;
+        // Define a altura desejada (120vh)
+        var novaAltura = '132vh';
+        conteudoCuriosidades.style.height = novaAltura;
 
-curiosidades.innerHTML = ` <h1 class="tituloc">Ásia</h1>
+        curiosidades.innerHTML = ` <h1 class="tituloc">Ásia</h1>
 
 <div class="cur">
 <img src="https://img.freepik.com/fotos-premium/tigre-de-bengala-branco-olhando-para-a-camera-na-florestadia-mundial-da-vida-selvagem_1962-2632.jpg"
@@ -213,17 +233,17 @@ class="imge" alt="">
 <p>Esta impressionante estrutura defensiva se estende por mais de 21.000 quilômetros através do norte da China. Construída ao longo de vários séculos, é uma das maravilhas arquitetônicas mais reconhecidas do mundo.</p>
 </div> `
 
-}
+    }
 
-function euro() {
+    function euro() {
 
-var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+        var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
 
-// Define a altura desejada (120vh)
-var novaAltura = '131vh';
-conteudoCuriosidades.style.height = novaAltura;
+        // Define a altura desejada (120vh)
+        var novaAltura = '131vh';
+        conteudoCuriosidades.style.height = novaAltura;
 
-curiosidades.innerHTML = ` <h1 class="tituloc">Europa</h1>
+        curiosidades.innerHTML = ` <h1 class="tituloc">Europa</h1>
 
 <div class="cur">
 <img src="https://media-server.clubmed.com/image/jpeg/1024/auto/crop/center/70/https%3A%2F%2Fns.clubmed.com%2Faml%2FBrazil%2F2023%2FVNN-ARTIGOS%2FNOVEMBRO%2F16112023-1%2Fgrenoble.jpg"
@@ -246,17 +266,17 @@ class="imge" alt="">
 <p> Um dos locais mais famosos da Grécia, a Acrópole é uma colina rochosa que abriga alguns dos mais importantes monumentos da Antiguidade, incluindo o Parthenon, o Erecteion e o Templo de Atena Nice. É um Patrimônio Mundial da UNESCO e oferece uma vista deslumbrante da cidade de Atenas.</p>
 </div> `
 
-}
+    }
 
-function oce() {
+    function oce() {
 
-var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
+        var conteudoCuriosidades = document.querySelector('.conteudocuriosidades');
 
-// Define a altura desejada (120vh)
-var novaAltura = '138vh';
-conteudoCuriosidades.style.height = novaAltura;
+        // Define a altura desejada (120vh)
+        var novaAltura = '138vh';
+        conteudoCuriosidades.style.height = novaAltura;
 
-curiosidades.innerHTML = ` <h1 class="tituloc">Oceânia</h1>
+        curiosidades.innerHTML = ` <h1 class="tituloc">Oceânia</h1>
 
 <div class="cur">
 <img src="https://rotadocanguru.com.br/wp-content/uploads/2019/11/vista-area-grande-barreira-coral.jpg"
@@ -279,5 +299,5 @@ class="imge" alt="">
 <p>Este icônico monólito de arenito está localizado no coração da Austrália, no Parque Nacional Uluru-Kata Tjuta. Uluru é sagrado para os povos aborígenes australianos e é um dos locais mais reconhecidos da Austrália, conhecido por sua cor avermelhada e importância cultural.</p>
 </div> `
 
-}
+    }
 </script>

@@ -29,7 +29,16 @@
                     <a href="jogos.html">Jogos</a>
                 </li>
                 <li>
+                    <a href="ranking.html">Ranking</a>
+                </li>
+                <li>
                     <a href="contato.html">Contato</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li onclick="sair()">
+                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span> 
                 </li>
             </ul>
         </div>
@@ -74,11 +83,7 @@
         </div>
         <div class="inicio2">
             <div class="continentes">
-                <lord-icon src="https://cdn.lordicon.com/pbyiftgw.json" trigger="loop" delay="500"
-                    colors="primary:#121331,secondary:#16c72e,tertiary:#16a9c7,quaternary:#16a9c7"
-                    style="width:165px;height:165px">
-                </lord-icon>
-                <!-- <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/250px-Asia_%28orthographic_projection%29.svg.png" alt=""> -->
+                <img width="160px" style="margin-top: 15px; margin-bottom: -15px;" src="../../../assets/acertePais.png" alt="">
                 <h5>Acerte o Pais</h5>
                 <span class="descricao"></span>
                 <a href="../Word Guessing Game/index.html">
@@ -98,11 +103,7 @@
                 </a>
             </div>
             <div class="continentes">
-                <lord-icon src="https://cdn.lordicon.com/pbyiftgw.json" trigger="loop" delay="500"
-                    colors="primary:#121331,secondary:#16c72e,tertiary:#16a9c7,quaternary:#16a9c7"
-                    style="width:165px;height:165px">
-                </lord-icon>
-                <!-- <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg/250px-Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg.png" alt=""> -->
+                <img width="160px" style="margin-top: 15px; margin-bottom: -15px;" src="../../../assets/acertePais.png" alt="">
                 <h5>Jogo Das Bandeiras</h5>
                 <span class="descricao"></span>
                 <a href="../jogoBandeiras/flags.html">
@@ -117,3 +118,15 @@
 </body>
 
 </html>
+
+<script>
+    function sair() {
+        sessionStorage.clear();
+        window.location = "../../../index.html";
+    }
+
+    const nomeUser = sessionStorage.NOME_USUARIO;
+    const idUser = sessionStorage.ID_USUARIO;
+    const emailUser = sessionStorage.EMAIL_USUARIO;
+    const continenteUser = sessionStorage.CONTINENTE_USUARIO;
+</script>
