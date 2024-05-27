@@ -8,27 +8,49 @@
     <link rel="stylesheet" href="../../style.css">
 </head>
 
+<script>
+
+    const nomeUser = sessionStorage.NOME_USUARIO;
+    const idUser = sessionStorage.ID_USUARIO;
+    const emailUser = sessionStorage.EMAIL_USUARIO;
+    const continenteUser = sessionStorage.CONTINENTE_USUARIO;
+    
+    function sair() {
+        sessionStorage.clear();
+        window.location = "../../../../index.html";
+    }
+</script>
+
 <body class="bodyaf">
     <div class="header">
 
         <div class="container">
             <div class="principal">
-                <img src="https://i.pinimg.com/originals/4b/97/c1/4b97c18135696f758ff3aee979f868a0.png" alt=""
-                    class="logo" width="50px">
+                <img src="../../../../assets/GeoTech.png" alt=""
+                class="logo" width="50px">
                 <h1 class="titulo">GeoTech</h1>
             </div>
             <ul class="navbar">
                 <li>
-                    <a href="../index.html">Início</a>
+                    <a href="index.html">Início</a>
                 </li>
                 <li>
-                    <a href="../curiosidadades.html">Curiosidades</a>
+                    <a href="curiosidadades.html">Curiosidades</a>
                 </li>
                 <li>
-                    <a href="../jogos.html">Jogos</a>
+                    <a href="jogos.html">Jogos</a>
                 </li>
                 <li>
-                    <a href="../contato.html">Contato</a>
+                    <a style="display: flex; width: max-content;" href="real.html">Tempo Real</a>
+                </li>
+                <li>
+                    <a href="contato.html">Contato</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li onclick="sair()">
+                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
                 </li>
             </ul>
         </div>

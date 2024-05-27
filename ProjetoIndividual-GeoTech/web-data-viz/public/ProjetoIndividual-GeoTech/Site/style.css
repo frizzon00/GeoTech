@@ -19,6 +19,7 @@ body {
     flex-direction: column;
 }
 
+
 .header {
     background: rgb(48, 170, 210);
     background: linear-gradient(90deg, rgba(48, 170, 210, 1) 0%, rgba(51, 186, 242, 1) 40%, rgba(0, 212, 255, 1) 100%);
@@ -62,6 +63,61 @@ body {
     list-style: none;
     gap: 30px;
     margin-left: -75px;
+}
+
+.dashboard{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.continentSelect{
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.graficos1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 45%;
+    gap: 100px;
+    border-bottom: #ffffff 1px solid;
+    margin-bottom: 6px;
+}
+
+.graficos2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 43.5%;
+}
+
+.conteudodash {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../Site/fundo3.png');
+    width: 100%;
+    height: 102vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center -150px;
+    color: #ffffff;
+}
+
+
+#continentSelect{
+    background-color: #8fe2de;
+    color: #1d6d92;
+    border-radius: 5px;
+    border: 2px solid #1d6d92;
+    font-weight: 700;
+    margin-left: 5px;
 }
 
 .navbarinicio {
@@ -254,11 +310,11 @@ a {
 
 @keyframes mudarBorda {
     0% {
-        border-color: rgb(255, 171, 62);
+        border-color: rgb(0, 3, 165);
     }
 
     25% {
-        border-color: rgb(82, 255, 218);
+        border-color: rgb(82, 229, 255);
     }
 
     50% {
@@ -266,7 +322,7 @@ a {
     }
 
     75% {
-        border-color: rgb(255, 38, 38);
+        border-color: rgb(7, 78, 0);
     }
 }
 
@@ -276,15 +332,15 @@ a {
     }
 
     25% {
-        color: rgb(186, 82, 255);
+        color: rgb(68, 0, 114);
     }
 
     50% {
-        color: rgb(12, 124, 12);
+        color: rgb(68, 105, 0);
     }
 
     75% {
-        color: rgb(255, 38, 38);
+        color: rgb(0, 80, 7);
     }
 }
 
@@ -319,11 +375,33 @@ a {
 }
 
 .cardimg {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 140px;
     height: 140px;
 
 }
+
+.cardimg2 {
+    margin-top: 10px;
+    width: 240px;
+    height: 140px;
+
+}
+
+.cardimg3 {
+    margin-top: 12px;
+    width: 200px;
+    height: 150px;
+
+}
+
+.quantidade{
+    margin: 0;
+    margin-top: -25px;
+    font-size: 12px;
+    color: #1d6d92;
+}
+
 
 .descricao {
     font-size: 14px;
@@ -354,6 +432,8 @@ a {
 
 h5 {
     color: #1d6d92;
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 

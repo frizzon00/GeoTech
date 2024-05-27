@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Dashboard</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../../../assets/GeoTech.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="../../../assets/GeoTech.png" alt="" class="logo" width="55px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a style="display: flex; width: max-content;" href="real.html">Tempo Real</a>
+                </li>
+                <li>
+                    <a href="contato.html">Contato</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li onclick="sair()">
+                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudodash">
+        <div class="dashboard">
+            <div style="display: flex; flex-direction: row; width: 100%;
+             justify-content: center; margin-top: 40px;">
+                <label class="continentSelect" for="continentSelect">Selecione um continente:</label>
+                <select id="continentSelect">
+                    <option value="">Todos</option>
+                    <option value="Africa">África</option>
+                    <option value="Americas">Américas</option>
+                    <option value="Asia">Ásia</option>
+                    <option value="Europe">Europa</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </div>
+            <div class="graficos1">
+                <canvas id="gdpChart" width="350px" height="180px"></canvas>
+                <canvas id="areaChart" width="350px" height="180px" style="margin-top: 20px;"></canvas>
+            </div>
+            <div class="graficos2">
+                <canvas id="myChart" style="margin-left: 55px;" width="350px" height="190px"></canvas>
+                <canvas id="areaChart2" style="margin-right: 25px; margin-top: 20px;" width="350px"
+                    height="180px"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let areaChart2; // Variável global para armazenar a instância do gráfico
+
+    // Função para buscar dados de COVID-19 de um país
+    async function fetchCovidData(country) {
+        const response = await fetch(`https://disease.sh/v3/covid-19/countries/${country}`);
+        const data = await response.json();
+        return data;
+    }
+
+    // Função para atualizar o gráfico com os dados obtidos
+    async function atualizarGrafico() {
+        const continentSelect = document.getElementById('continentSelect');
+        let paises = ['Brazil', 'Germany', 'India', 'Japan', 'New Zealand', 'Sweden', 'Russia'];
+
+        if (continentSelect.value == 'Africa') {
+            paises = ['Nigeria', 'Ethiopia', 'Egypt', 'Congo', 'South Africa', 'Tanzania', 'Kenya'];
+        } else if (continentSelect.value == 'Asia') {
+            paises = ['China', 'India', 'Indonesia', 'Pakistan', 'Bangladesh', 'Japan', 'Philippines'];
+        } else if (continentSelect.value == 'Americas') {
+            paises = ['USA', 'Brazil', 'Mexico', 'Colombia', 'Argentina', 'Canada', 'Peru'];
+        } else if (continentSelect.value == 'Europe') {
+            paises = ['Russia', 'Germany', 'Turkey', 'France', 'UK', 'Italy', 'Spain'];
+        } else if (continentSelect.value == 'Oceania') {
+            paises = ['Australia', 'Papua New Guinea', 'New Zealand', 'Fiji', 'Solomon Islands', 'Vanuatu', 'Samoa'];
+        }
+
+        const cases = [];
+        for (let i = 0; i < paises.length; i++) {
+            const covidData = await fetchCovidData(paises[i]);
+            cases.push(covidData.cases);
+        }
+
+        // Atualizar os dados do gráfico existente
+        if (areaChart2) {
+            areaChart2.data.labels = paises;
+            areaChart2.data.datasets[0].data = cases;
+            areaChart2.update();
+        } else {
+            const areaCtx = document.getElementById('areaChart2').getContext('2d');
+            areaChart2 = new Chart(areaCtx, {
+                type: 'bar',
+                data: {
+                    labels: paises,
+                    datasets: [{
+                        label: 'Total de Casos Confirmados de COVID-19',
+                        data: cases,
+                        backgroundColor: 'rgba(0,212,255,1)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Número de Casos',
+                                color: 'white'  // Cor do título do eixo Y
+                            },
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo Y
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                color: 'white'  // Cor do título do eixo X
+                            },
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo X
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'  // Cor das labels da legenda
+                            }
+                        },
+                    }
+                }
+            });
+        }
+    }
+
+   
+    atualizarGrafico();
+
+    setInterval(atualizarGrafico, 3000);    
+</script>
+<script>
+    const areaCtx = document.getElementById('areaChart').getContext('2d');
+    let areaChart; // Variável global para armazenar a instância do gráfico
+
+    // Função para buscar as áreas territoriais dos países na API
+    async function buscarAreas() {
+        try {
+            const response = await fetch('https://restcountries.com/v3.1/all');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Erro ao buscar dados:', error);
+        }
+    }
+
+    // Função para traduzir os nomes dos países para o português
+    function traduzirNomes(paises) {
+        const traducoes = {
+            "United States": "Estados Unidos",
+            "Canada": "Canadá",
+            "Brazil": "Brasil",
+            "Mexico": "México",
+            "China": "China",
+            "India": "Índia",
+            "Indonesia": "Indonésia",
+            "Pakistan": "Paquistão",
+            "Bangladesh": "Bangladesh",
+            "Japan": "Japão",
+            "Philippines": "Filipinas",
+            "Russia": "Rússia",
+            "Germany": "Alemanha",
+            "Turkey": "Turquia",
+            "France": "França",
+            "United Kingdom": "Reino Unido",
+            "Italy": "Itália",
+            "Spain": "Espanha",
+            "Australia": "Austrália",
+            "Papua New Guinea": "Papua-Nova Guiné",
+            "New Zealand": "Nova Zelândia",
+            "Fiji": "Fiji",
+            "Solomon Islands": "Ilhas Salomão",
+            "Vanuatu": "Vanuatu",
+            "Samoa": "Samoa",
+            "Saudi Arabia": "Arabia Saudita",
+            "Iran": "Irã",
+            "Algeria": "Argelia",
+            "Sudan": "Sudâo",
+            "Libya": "Libia"
+
+            // Adicione mais traduções conforme necessário
+        };
+
+        return paises.map(pais => traducoes[pais] || pais);
+    }
+
+    // Função para atualizar o gráfico com base no continente selecionado
+    async function atualizarGrafico() {
+        const data = await buscarAreas();
+        const continenteSelecionado = document.getElementById('continentSelect').value;
+        const dataFiltrada = continenteSelecionado ? data.filter(pais => pais.region === continenteSelecionado) : data;
+
+        // Ordenar os países por área territorial (do maior para o menor)
+        dataFiltrada.sort((a, b) => b.area - a.area);
+
+        // Selecionar os 15 países com as maiores áreas territoriais
+        const paises = traduzirNomes(dataFiltrada.slice(0, 7).map(pais => pais.name.common));
+        const areas = dataFiltrada.slice(0, 7).map(pais => pais.area);
+
+        // Destruir o gráfico anterior, se existir
+        if (areaChart) {
+            areaChart.destroy();
+        }
+
+        // Criar um novo gráfico
+        areaChart = new Chart(areaCtx, {
+            type: 'bar',
+            data: {
+                labels: paises,
+                datasets: [{
+                    label: 'Área Territorial (km²)',
+                    data: areas,
+                    backgroundColor: 'rgba(0,212,255,1)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Área (km²)',
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'  // Cor das labels da legenda
+                        }
+                    },
+                }
+            }
+        });
+    }
+
+    // Iniciar atualização do gráfico
+    atualizarGrafico();
+
+    setInterval(atualizarGrafico, 3000);
+</script>
+
+<script>
+    const populationCtx = document.getElementById('myChart').getContext('2d');
+    let populationChart; // Variável global para armazenar a instância do gráfico
+
+    // Função para buscar os dados dos países na API
+    async function buscarDados() {
+        try {
+            const response = await fetch('https://restcountries.com/v3.1/all');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Erro ao buscar dados:', error);
+        }
+    }
+
+    // Função para traduzir os nomes dos países para o português
+    function traduzirNomes(paises) {
+        const traducoes = {
+            "United States": "Estados Unidos",
+            "Canada": "Canadá",
+            "Brazil": "Brasil",
+            "Mexico": "México",
+            "China": "China",
+            "India": "Índia",
+            "Indonesia": "Indonésia",
+            "Pakistan": "Paquistão",
+            "Bangladesh": "Bangladesh",
+            "Japan": "Japão",
+            "Philippines": "Filipinas",
+            "Russia": "Rússia",
+            "Germany": "Alemanha",
+            "Turkey": "Turquia",
+            "France": "França",
+            "United Kingdom": "Reino Unido",
+            "Italy": "Itália",
+            "Spain": "Espanha",
+            "Australia": "Austrália",
+            "Papua New Guinea": "Papua-Nova Guiné",
+            "New Zealand": "Nova Zelândia",
+            "Fiji": "Fiji",
+            "Solomon Islands": "Ilhas Salomão",
+            "Vanuatu": "Vanuatu",
+            "Samoa": "Samoa"
+            // Adicione mais traduções conforme necessário
+        };
+
+        return paises.map(pais => traducoes[pais] || pais);
+    }
+
+    // Função para atualizar o gráfico com base no continente selecionado
+    async function atualizarGrafico() {
+        const data = await buscarDados();
+        const continenteSelecionado = document.getElementById('continentSelect').value;
+        const dataFiltrada = continenteSelecionado ? data.filter(pais => pais.region === continenteSelecionado) : data;
+
+        // Ordenar os países por população (do maior para o menor)
+        dataFiltrada.sort((a, b) => b.population - a.population);
+
+        // Selecionar os 15 países com as maiores populações
+        const paises = traduzirNomes(dataFiltrada.slice(0, 7).map(pais => pais.name.common));
+        const populacoes = dataFiltrada.slice(0, 7).map(pais => pais.population);
+
+        // Destruir o gráfico anterior, se existir
+        if (populationChart) {
+            populationChart.destroy();
+        }
+
+        // Criar um novo gráfico
+        populationChart = new Chart(populationCtx, {
+            type: 'bar',
+            data: {
+                labels: paises,
+                datasets: [{
+                    label: 'População',
+                    data: populacoes,
+                    backgroundColor: 'rgba(0,212,255,1)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'População',
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo X
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'  // Cor das labels da legenda
+                        }
+                    },
+                }
+            }
+        });
+    }
+
+    // Iniciar atualização do gráfico
+    atualizarGrafico();
+
+    // Atualizar o gráfico a cada 3000 ms (5 segundos)
+    setInterval(atualizarGrafico, 3000);
+</script>
+
+
+<script>
+    let gdpChart;
+
+    function createChart(labels, values) {
+        var ctx = document.getElementById('gdpChart').getContext('2d');
+        if (gdpChart) {
+            gdpChart.destroy();
+        }
+        gdpChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'PIB (MILHÕES DE US$)',
+                    data: values,
+                    backgroundColor: 'rgba(0,212,255,1)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'  // Cor das labels da legenda
+                        }
+                    },
+                }
+            }
+        });
+    }
+
+    function fetchDataAndUpdateChart() {
+        let countries = ['BR', 'US', 'CN', 'IN', 'JP', 'DE', 'GB']; // Lista de códigos de países
+        if (continentSelect.value == 'Africa') {
+            countries = ['NG', 'ET', 'EG', 'CD', 'ZA', 'KE', 'UG'];
+        } else if (continentSelect.value == 'Asia') {
+            countries = ['CN', 'JP', 'IN', 'PK', 'BD', 'AZ', 'AF'];
+        } else if (continentSelect.value == 'Americas') {
+            countries = ['US', 'BR', 'MX', 'CO', 'AR', 'CA', 'VE'];
+        } else if (continentSelect.value == 'Europe') {
+            countries = ['RU', 'DE', 'TR', 'PK', 'FR', 'GB', 'IT'];
+        } else if (continentSelect.value == 'Oceania') {
+            countries = ['AU', 'NZ', 'PG', 'FJ', 'SB', 'VU', 'NC'];
+        }
+        const apiUrl = `https://api.worldbank.org/v2/country/${countries.join(';')}/indicator/NY.GDP.MKTP.CD?format=json&date=2022:2022`; // Filtra para o ano mais recente
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const gdpData = data[1];
+                // Agrupar os dados por país para pegar o valor mais recente
+                const groupedData = gdpData.reduce((acc, item) => {
+                    acc[item.country.id] = item;
+                    return acc;
+                }, {});
+                const labels = Object.values(groupedData).map(item => item.country.value);
+                const values = Object.values(groupedData).map(item => item.value);
+                createChart(labels, values);
+            });
+    }
+
+    // Obter os dados da API e criar o gráfico
+    fetchDataAndUpdateChart();
+
+    // Atualizar os dados e o gráfico a cada 5 segundos (3000 milissegundos)
+    setInterval(fetchDataAndUpdateChart, 3000);
+</script>
+
+<script>
+
+    const nomeUser = sessionStorage.NOME_USUARIO;
+    const idUser = sessionStorage.ID_USUARIO;
+    const emailUser = sessionStorage.EMAIL_USUARIO;
+    const continenteUser = sessionStorage.CONTINENTE_USUARIO;
+
+    function sair() {
+        sessionStorage.clear();
+        window.location = "../../../index.html";
+    }
+</script>
