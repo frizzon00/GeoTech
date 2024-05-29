@@ -530,6 +530,16 @@ p {
     justify-content: center;
 }
 
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    justify-content: center;
+    width: -webkit-fill-available;
+}
+
+
+
 .formcadastro {
     display: flex;
     justify-content: center;
@@ -587,7 +597,7 @@ label {
     display: block;
     margin-bottom: 5px;
     color: #0066ff;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 input[type="text"],
@@ -622,6 +632,32 @@ textarea {
 }
 
 input[type="submit"] {
+    background-color: #0066ff;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input[type="button"] {
+    background-color: #0066ff;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.buttone {
     background-color: #0066ff;
     color: white;
     padding: 15px 20px;

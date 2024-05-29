@@ -9,7 +9,7 @@
     <link rel="icon" href="../../../assets/GeoTech.png" type="image/png">
 </head>
 
-<body>
+<body onload="dadosU()">
     <div class="header">
 
         <div class="container">
@@ -31,7 +31,7 @@
                     <a style="display: flex; width: max-content;" href="real.html">Tempo Real</a>
                 </li>
                 <li>
-                    <a href="contato.html">Contato</a>
+                    <a href="contato.html">Feedback</a>
                 </li>
                 <li>
                     |
@@ -45,31 +45,39 @@
     <div class="conteudocontato">
 
         <div class="contato">
-            <h2 class="tituloh2"> Entre em Contato:</h2>
+            <h2 class="tituloh2">Deixe seu Feedback!</h2>
 
-            <p class="pcontato">Entre em contato conosco hoje mesmo para saber mais sobre como podemos ajudá-lo a
-                explorar o mundo através dos dados geográficos e desvendar as maravilhas do nosso planeta.</p>
-
+            <p class="pcontato">Sua opinião é muito importante para nós. Envie suas críticas, sugestões ou elogios para
+                que possamos melhorar continuamente nossos serviços e atender melhor às suas necessidades. Agradecemos
+                por compartilhar seus pensamentos conosco!
+            </p>
             <div class="form">
                 <div class="esquerda">
                     <img src="../../../assets/terrafone.png" width="400px" height="300px" alt="">
                 </div>
                 <div class="direita">
-                    <form action="#" method="post">
+                    <div class="formulario">
                         <label for="name">Nome:</label>
-                        <input type="text" id="name" name="name" placeholder="Insira seu nome" required>
+                        <span class="dadosUsuario" id="nomeUsuario"></span>
 
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Insira seu email" required>
+                        <span class="dadosUsuario" id="emailUsuario"></span>
 
+                        <label for="feedback">Tipo do Feedback:</label>
+                        <select id="tipoFeedback">
+                            <option value="Crítica">Crítica</option>
+                            <option value="Sugestão">Sugestão de Mudança</option>
+                            <option value="Elogio">Elogio</option>
+                            <option value="Contato">Mensagem de Contato</option>
+                        </select>
                         <label for="message">Mensagem:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Escreva aqui sua mensagem..."
+                        <textarea id="message_input" name="message" rows="4" placeholder="Escreva aqui sua mensagem..."
                             required></textarea>
 
                         <div class="enviar">
-                            <input type="submit" value="Enviar">
+                            <input type="submit" value="Enviar" onclick="feedback()">
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,14 +90,58 @@
 </html>
 
 <script>
+    function dadosU() {
+        nomeUsuario.innerHTML = nomeUser
+        emailUsuario.innerHTML = emailUser
+    }
+
 
     const nomeUser = sessionStorage.NOME_USUARIO;
     const idUser = sessionStorage.ID_USUARIO;
     const emailUser = sessionStorage.EMAIL_USUARIO;
     const continenteUser = sessionStorage.CONTINENTE_USUARIO;
-    
+
     function sair() {
         sessionStorage.clear();
         window.location = "../../../index.html";
+    }
+
+    function feedback() {
+        var nomeV = nomeUser;
+        var emailV = emailUser;
+        var tipoV = tipoFeedback.value;
+        var messageV = message_input.value;
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/feedback", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeV,
+                emailServer: emailV,
+                tipoServer: tipoV,
+                messageServer: messageV
+
+            }),
+        }).then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                window.location = "index.html";
+
+            } else {
+                throw "Houve um erro ao enviar feedback!";
+            }
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false; // Adicione isso para cancelar a submissão do formulário
     }
 </script>

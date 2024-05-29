@@ -7,9 +7,15 @@ var usuarioController = require("../controllers/usuarioController");
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
-
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
+})
+router.post("/mensagem", function (req, res) {
+    usuarioController.mensagem(req, res);
+})
+
+router.post("/feedback", function (req, res) {
+    usuarioController.feedback(req, res);
 });
 
 module.exports = router;

@@ -83,8 +83,7 @@
                             <div class="enviarcadastro">
                                 <button class="cadastrar" onclick="cadastrar()">Cadastrar</button>
                             </div>
-                            <!-- <a href="login.html" class="enviarcadastro"> <input type="submit" value="Cadastrar!"></a> -->
-                        </div>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -165,16 +164,12 @@
             if (resposta.ok) {
                 window.location = "login.html";
 
-
-                // limparFormulario();
-                // finalizarAguardar();
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
         })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
 
         return false; // Adicione isso para cancelar a submissão do formulário
