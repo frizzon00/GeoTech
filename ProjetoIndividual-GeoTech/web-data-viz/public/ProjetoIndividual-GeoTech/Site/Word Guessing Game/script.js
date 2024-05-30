@@ -40,8 +40,37 @@ const blocker = () => {
 
 //Start Game
 startBtn.addEventListener("click", () => {
+  // Adiciona a classe "hide" aos controles e inicia o jogo
   controls.classList.add("hide");
   init();
+
+  // Função que envia os dados do usuário e do jogo ao servidor
+  var idV = sessionStorage.ID_USUARIO;
+  var jogoV = 4;
+
+  // Envia os dados do usuário e do jogo para o servidor
+  fetch("/usuarios/pais", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          idServer: idV,
+          jogoServer: jogoV
+      }),
+  }).then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+          console.log("Dados enviados com sucesso!");
+      } else {
+          throw "Houve um erro ao tentar entrar em contato!";
+      }
+  }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+  });
+
+  return false; // Adicione isso para cancelar a submissão do formulário, se aplicável
 });
 
 //Stop Game

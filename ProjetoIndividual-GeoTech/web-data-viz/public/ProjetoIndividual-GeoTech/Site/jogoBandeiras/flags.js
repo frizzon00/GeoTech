@@ -247,5 +247,37 @@ startButton.addEventListener(
       element.addEventListener("dragover", dragOver);
       element.addEventListener("drop", drop);
     });
+    var idV = sessionStorage.ID_USUARIO;
+    var jogoV = 6
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/flag", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idServer: idV,
+            jogoServer: jogoV
+           
+        }),
+    }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+        } else {
+            throw "Houve um erro ao tentar entrar em contato!";
+        }
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false; // Adicione isso para cancelar a submissão do formulário
   })
+
+  
+  
 );

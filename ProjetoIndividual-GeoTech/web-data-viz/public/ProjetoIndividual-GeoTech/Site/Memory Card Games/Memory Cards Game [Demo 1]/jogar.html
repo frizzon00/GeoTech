@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <link rel="icon" href="../../../../assets/GeoTech.png" type="image/png">
   </head>
 <body class="jogar">
     <a href="../Memory Cards Game [Demo 1]/index.html"><lord-icon
@@ -17,7 +18,40 @@
       state="hover-rotate-up-to-down"
       colors="primary:#ffffff,secondary:#30c9e8"
       style="width:250px;height:200px">
-  </lord-icon><button class="start">Jogar</button></a>
+  </lord-icon><button class="start" onclick="memory1()">Jogar</button></a>
   <a href="../../SitePrincipal/jogos.html"><button class="voltar">Voltar</button></a>
 </body>
 </html>
+<script>
+      function memory1() {
+        var idV = sessionStorage.ID_USUARIO;
+        var jogoV = 1
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/memory1", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idServer: idV,
+                jogoServer: jogoV
+               
+            }),
+        }).then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+            } else {
+                throw "Houve um erro ao tentar entrar em contato!";
+            }
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false; // Adicione isso para cancelar a submissão do formulário
+    }
+</script>

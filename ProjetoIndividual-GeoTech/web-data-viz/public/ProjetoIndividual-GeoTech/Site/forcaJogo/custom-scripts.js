@@ -73,61 +73,6 @@ const insertStickyAd = () => {
     (adsbygoogle = window.adsbygoogle || []).push({});
     setTimeout(() => showStickyAd(), 3000);
 }
-
-// let isHideVignette = false;
-
-// const showVignetteAd = () => {
-//     const vignetteAd = document.querySelector(".cn-vignette-popup");
-//     const closeBtn = vignetteAd.querySelector(".close-btn");
-//     const googleAd = vignetteAd.querySelector(".adsbygoogle");
-//     const isAdLoaded = googleAd?.getAttribute("data-ad-status");
-//     const isVignetteAdHidden = vignetteAd.classList.contains("hide");
-//     if(window.innerWidth < 700 || isVignetteAdHidden || !isAdLoaded || isAdLoaded === "unfilled") return;
-
-//     vignetteAd.classList.add("show");
-
-//     const hideVignetteAd = () => {
-//         vignetteAd.classList.remove("show");
-//     }
-
-//     closeBtn.addEventListener("click", hideVignetteAd);
-// }
-
-// const insertVignetteAd = () => {
-//     const vignetteAd = document.createElement("div");
-//     vignetteAd.style.opacity = "0";
-//     vignetteAd.classList.add("cn-vignette-popup");
-//     vignetteAd.innerHTML = `<div class="popup-overlay"></div>
-//                               <div class="popup-content">
-//                                 <div class="popup-header">
-//                                   <span class="popup-title">Ad</span>
-//                                   <span class="close-btn">
-//                                     <svg viewBox="0 0 48 48" fill="#6d6d6d"><path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"></path><path d="M0 0h48v48H0z" fill="none"></path></svg>
-//                                   </span>
-//                                 </div>
-//                                 <div class="popup-body">
-//                                   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2279718596603414"
-//                                          crossorigin="anonymous"></script>
-//                                     <!-- Demo Vignette Ad -->
-//                                     <ins class="adsbygoogle"
-//                                          style="display:block"
-//                                          data-ad-client="ca-pub-2279718596603414"
-//                                          data-ad-slot="5807977133"
-//                                          data-ad-format="auto"
-//                                          data-full-width-responsive="true"></ins>
-//                                     <script>
-//                                          (adsbygoogle = window.adsbygoogle || []).push({});
-//                                     </script>
-//                                 </div>
-//                             </div>`;
-//     document.body.appendChild(vignetteAd);
-//     document.addEventListener("click", () => {
-//         if(isHideVignette) return;
-//         showVignetteAd();
-//         isHideVignette = true;
-//     });
-// }
-
 const insertLinkAndScript = () => {
     const isCustomLinkExist = document.querySelector('link[href="../custom-styles.css"]');
     if(!isCustomLinkExist) {

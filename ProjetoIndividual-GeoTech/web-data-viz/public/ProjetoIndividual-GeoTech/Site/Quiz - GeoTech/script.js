@@ -29,6 +29,37 @@ continue_btn.onclick = () => {
     queCounter(1); // Chama a função queCounter para atualizar o contador de questões passando 1 como parâmetro
     startTimer(15); // Chama a função startTimer para iniciar o temporizador do quiz com 15 segundos
     startTimerLine(0); // Chama a função startTimerLine para iniciar a linha de tempo do quiz
+
+    
+    var idV = sessionStorage.ID_USUARIO;
+    var jogoV = 2
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/quiz", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idServer: idV,
+            jogoServer: jogoV
+           
+        }),
+    }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+        } else {
+            throw "Houve um erro ao tentar entrar em contato!";
+        }
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false; // Adicione isso para cancelar a submissão do formulário
 }
 
 
@@ -64,6 +95,7 @@ restart_quiz.onclick = () => {
     startTimerLine(widthValue); // Chama a função startTimerLine para iniciar a linha de tempo do quiz
     timeText.textContent = "Tempo:"; // Altera o texto de tempo restante para "Time Left"
     next_btn.classList.remove("show"); // Esconde o botão "Next" (próximo) do quiz
+
 }
 
 

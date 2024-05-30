@@ -44,7 +44,9 @@
         </div>
     </div>
     <div class="conteudodash">
+        
         <div class="dashboard">
+            <h1 style="margin-bottom: -8px;">Dados Reais dos países em Tempo Real!</h1>
             <div style="display: flex; flex-direction: row; width: 100%;
              justify-content: center; margin-top: 40px;">
                 <label class="continentSelect" for="continentSelect">Selecione um continente:</label>
@@ -62,8 +64,8 @@
                 <canvas id="areaChart" width="350px" height="180px" style="margin-top: 20px;"></canvas>
             </div>
             <div class="graficos2">
-                <canvas id="myChart" style="margin-left: 55px;" width="350px" height="190px"></canvas>
-                <canvas id="areaChart2" style="margin-right: 25px; margin-top: 20px;" width="350px"
+                <canvas id="myChart" width="350px" height="190px"></canvas>
+                <canvas id="areaChart2" style="margin-right: 0px;" width="350px"
                     height="180px"></canvas>
             </div>
         </div>
@@ -88,85 +90,90 @@
     // Função para atualizar o gráfico com os dados obtidos
     async function atualizarGrafico() {
         const continentSelect = document.getElementById('continentSelect');
-        let paises = ['Brazil', 'Germany', 'India', 'Japan', 'New Zealand', 'Sweden', 'Russia'];
+        let paises = ['Brazil', 'Germany', 'India', 'Japan', 'New Zealand', 'Sweden'];
 
         if (continentSelect.value == 'Africa') {
-            paises = ['Nigeria', 'Ethiopia', 'Egypt', 'Congo', 'South Africa', 'Tanzania', 'Kenya'];
+            paises = ['Nigeria', 'Ethiopia', 'Egypt', 'Congo', 'South Africa', 'Tanzania'];
         } else if (continentSelect.value == 'Asia') {
-            paises = ['China', 'India', 'Indonesia', 'Pakistan', 'Bangladesh', 'Japan', 'Philippines'];
+            paises = ['China', 'India', 'Indonesia', 'Pakistan', 'Bangladesh', 'Japan'];
         } else if (continentSelect.value == 'Americas') {
-            paises = ['USA', 'Brazil', 'Mexico', 'Colombia', 'Argentina', 'Canada', 'Peru'];
+            paises = ['USA', 'Brazil', 'Mexico', 'Colombia', 'Argentina', 'Canada'];
         } else if (continentSelect.value == 'Europe') {
-            paises = ['Russia', 'Germany', 'Turkey', 'France', 'UK', 'Italy', 'Spain'];
+            paises = ['Russia', 'Germany', 'Turkey', 'France', 'UK', 'Italy'];
         } else if (continentSelect.value == 'Oceania') {
-            paises = ['Australia', 'Papua New Guinea', 'New Zealand', 'Fiji', 'Solomon Islands', 'Vanuatu', 'Samoa'];
+            paises = ['Australia', 'Papua New Guinea', 'New Zealand', 'Fiji', 'Solomon Islands', 'Vanuatu'];
         }
 
-        const cases = [];
-        for (let i = 0; i < paises.length; i++) {
-            const covidData = await fetchCovidData(paises[i]);
-            cases.push(covidData.cases);
-        }
+        const promises = paises.map(fetchCovidData);
 
-        // Atualizar os dados do gráfico existente
-        if (areaChart2) {
-            areaChart2.data.labels = paises;
-            areaChart2.data.datasets[0].data = cases;
-            areaChart2.update();
-        } else {
-            const areaCtx = document.getElementById('areaChart2').getContext('2d');
-            areaChart2 = new Chart(areaCtx, {
-                type: 'bar',
-                data: {
-                    labels: paises,
-                    datasets: [{
-                        label: 'Total de Casos Confirmados de COVID-19',
-                        data: cases,
-                        backgroundColor: 'rgba(0,212,255,1)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Número de Casos',
-                                color: 'white'  // Cor do título do eixo Y
+        try {
+            const results = await Promise.all(promises);
+            const cases = results.map(result => result.cases);
+
+            // Atualizar os dados do gráfico existente
+            if (areaChart2) {
+                areaChart2.data.labels = paises;
+                areaChart2.data.datasets[0].data = cases;
+                areaChart2.update();
+            } else {
+                const areaCtx = document.getElementById('areaChart2').getContext('2d');
+                areaChart2 = new Chart(areaCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: paises,
+                        datasets: [{
+                            label: 'Total de Casos Confirmados de COVID-19',
+                            data: cases,
+                            backgroundColor: 'rgba(0,212,255,1)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    color: 'white'  // Cor do título do eixo Y
+                                },
+                                ticks: {
+                                    color: 'white'  // Cor das labels do eixo Y
+                                }
                             },
-                            ticks: {
-                                color: 'white'  // Cor das labels do eixo Y
+                            x: {
+                                title: {
+                                    display: true,
+                                    color: 'white'  // Cor do título do eixo X
+                                },
+                                ticks: {
+                                    color: 'white'  // Cor das labels do eixo X
+                                }
                             }
                         },
-                        x: {
-                            title: {
-                                display: true,
-                                color: 'white'  // Cor do título do eixo X
-                            },
-                            ticks: {
-                                color: 'white'  // Cor das labels do eixo X
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: 'white'  // Cor das labels da legenda
+                                }
                             }
                         }
-                    },
-                    plugins: {
-                        legend: {
-                            labels: {
-                                color: 'white'  // Cor das labels da legenda
-                            }
-                        },
                     }
-                }
-            });
+                });
+            }
+        } catch (error) {
+            console.error('Erro ao buscar dados de COVID-19:', error);
         }
     }
 
-   
-    atualizarGrafico();
+    // Adicionando event listener ao select
+    document.getElementById('continentSelect').addEventListener('change', atualizarGrafico);
 
-    setInterval(atualizarGrafico, 3000);    
+    // Chamada inicial para preencher o gráfico ao carregar a página
+    atualizarGrafico();
 </script>
+
+
 <script>
     const areaCtx = document.getElementById('areaChart').getContext('2d');
     let areaChart; // Variável global para armazenar a instância do gráfico
@@ -185,7 +192,7 @@
     // Função para traduzir os nomes dos países para o português
     function traduzirNomes(paises) {
         const traducoes = {
-            "United States": "Estados Unidos",
+            "United States": "EUA",
             "Canada": "Canadá",
             "Brazil": "Brasil",
             "Mexico": "México",
@@ -204,17 +211,21 @@
             "Italy": "Itália",
             "Spain": "Espanha",
             "Australia": "Austrália",
-            "Papua New Guinea": "Papua-Nova Guiné",
+            "Papua New Guinea": "PNG",
             "New Zealand": "Nova Zelândia",
+            "French Polynesia": "Polinésia",
             "Fiji": "Fiji",
             "Solomon Islands": "Ilhas Salomão",
             "Vanuatu": "Vanuatu",
             "Samoa": "Samoa",
-            "Saudi Arabia": "Arabia Saudita",
-            "Iran": "Irã",
-            "Algeria": "Argelia",
-            "Sudan": "Sudâo",
-            "Libya": "Libia"
+            "South Africa": "África do Sul",
+            "Egypt": "Egito",
+            "Kenya":"Quênia",
+            "Ethiopia": "Etiópia",
+            "DR Congo": "Congo",
+            "Ukraine": "Ucrânia",
+            "Chad": "Chade",
+            "Algeria": "Argélia"
 
             // Adicione mais traduções conforme necessário
         };
@@ -231,67 +242,70 @@
         // Ordenar os países por área territorial (do maior para o menor)
         dataFiltrada.sort((a, b) => b.area - a.area);
 
-        // Selecionar os 15 países com as maiores áreas territoriais
-        const paises = traduzirNomes(dataFiltrada.slice(0, 7).map(pais => pais.name.common));
-        const areas = dataFiltrada.slice(0, 7).map(pais => pais.area);
+        // Selecionar os 7 países com as maiores áreas territoriais
+        const paises = traduzirNomes(dataFiltrada.slice(0, 6).map(pais => pais.name.common));
+        const areas = dataFiltrada.slice(0, 6).map(pais => pais.area);
 
-        // Destruir o gráfico anterior, se existir
+        // Se o gráfico já existir, atualize-o
         if (areaChart) {
-            areaChart.destroy();
-        }
-
-        // Criar um novo gráfico
-        areaChart = new Chart(areaCtx, {
-            type: 'bar',
-            data: {
-                labels: paises,
-                datasets: [{
-                    label: 'Área Territorial (km²)',
-                    data: areas,
-                    backgroundColor: 'rgba(0,212,255,1)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Área (km²)',
-                            color: 'white'
-                        },
-                        ticks: {
-                            color: 'white'  // Cor das labels do eixo Y
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            color: 'white'
-                        },
-                        ticks: {
-                            color: 'white'  // Cor das labels do eixo Y
-                        }
-                    }
+            areaChart.data.labels = paises;
+            areaChart.data.datasets[0].data = areas;
+            areaChart.update();
+        } else {
+            // Se o gráfico não existir, crie um novo
+            areaChart = new Chart(areaCtx, {
+                type: 'bar',
+                data: {
+                    labels: paises,
+                    datasets: [{
+                        label: 'Área Territorial (km²)',
+                        data: areas,
+                        backgroundColor: 'rgba(0,212,255,1)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'white'  // Cor das labels da legenda
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo Y
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo X
+                            }
                         }
                     },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'  // Cor das labels da legenda
+                            }
+                        },
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
-    // Iniciar atualização do gráfico
-    atualizarGrafico();
+    // Adicionando event listener ao select
+    document.getElementById('continentSelect').addEventListener('change', atualizarGrafico);
 
-    setInterval(atualizarGrafico, 3000);
+    // Chamada inicial para preencher o gráfico ao carregar a página
+    atualizarGrafico();
 </script>
+
 
 <script>
     const populationCtx = document.getElementById('myChart').getContext('2d');
@@ -311,7 +325,7 @@
     // Função para traduzir os nomes dos países para o português
     function traduzirNomes(paises) {
         const traducoes = {
-            "United States": "Estados Unidos",
+            "United States": "EUA",
             "Canada": "Canadá",
             "Brazil": "Brasil",
             "Mexico": "México",
@@ -330,12 +344,19 @@
             "Italy": "Itália",
             "Spain": "Espanha",
             "Australia": "Austrália",
-            "Papua New Guinea": "Papua-Nova Guiné",
+            "Papua New Guinea": "PNG",
             "New Zealand": "Nova Zelândia",
+            "French Polynesia": "Polinésia",
             "Fiji": "Fiji",
             "Solomon Islands": "Ilhas Salomão",
             "Vanuatu": "Vanuatu",
-            "Samoa": "Samoa"
+            "Samoa": "Samoa",
+            "South Africa": "África do Sul",
+            "Egypt": "Egito",
+            "Kenya":"Quênia",
+            "Ethiopia": "Etiópia",
+            "DR Congo": "Congo",
+            "Ukraine": "Ucrânia"
             // Adicione mais traduções conforme necessário
         };
 
@@ -351,67 +372,68 @@
         // Ordenar os países por população (do maior para o menor)
         dataFiltrada.sort((a, b) => b.population - a.population);
 
-        // Selecionar os 15 países com as maiores populações
-        const paises = traduzirNomes(dataFiltrada.slice(0, 7).map(pais => pais.name.common));
-        const populacoes = dataFiltrada.slice(0, 7).map(pais => pais.population);
+        // Selecionar os 7 países com as maiores populações
+        const paises = traduzirNomes(dataFiltrada.slice(0, 6).map(pais => pais.name.common));
+        const populacoes = dataFiltrada.slice(0, 6).map(pais => pais.population);
 
-        // Destruir o gráfico anterior, se existir
+        // Se o gráfico já existir, atualize-o
         if (populationChart) {
-            populationChart.destroy();
-        }
-
-        // Criar um novo gráfico
-        populationChart = new Chart(populationCtx, {
-            type: 'bar',
-            data: {
-                labels: paises,
-                datasets: [{
-                    label: 'População',
-                    data: populacoes,
-                    backgroundColor: 'rgba(0,212,255,1)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'População',
-                            color: 'white'
-                        },
-                        ticks: {
-                            color: 'white'  // Cor das labels do eixo Y
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            color: 'white'
-                        },
-                        ticks: {
-                            color: 'white'  // Cor das labels do eixo X
-                        }
-                    }
+            populationChart.data.labels = paises;
+            populationChart.data.datasets[0].data = populacoes;
+            populationChart.update();
+        } else {
+            // Se o gráfico não existir, crie um novo
+            populationChart = new Chart(populationCtx, {
+                type: 'bar',
+                data: {
+                    labels: paises,
+                    datasets: [{
+                        label: 'População',
+                        data: populacoes,
+                        backgroundColor: 'rgba(0,212,255,1)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'white'  // Cor das labels da legenda
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo Y
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                color: 'white'
+                            },
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo X
+                            }
                         }
                     },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'  // Cor das labels da legenda
+                            }
+                        },
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
-    // Iniciar atualização do gráfico
-    atualizarGrafico();
+    // Adicionando event listener ao select
+    document.getElementById('continentSelect').addEventListener('change', atualizarGrafico);
 
-    // Atualizar o gráfico a cada 3000 ms (5 segundos)
-    setInterval(atualizarGrafico, 3000);
+    // Chamada inicial para preencher o gráfico ao carregar a página
+    atualizarGrafico();
 </script>
 
 
@@ -419,82 +441,90 @@
     let gdpChart;
 
     function createChart(labels, values) {
-        var ctx = document.getElementById('gdpChart').getContext('2d');
+        const ctx = document.getElementById('gdpChart').getContext('2d');
         if (gdpChart) {
-            gdpChart.destroy();
-        }
-        gdpChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'PIB (MILHÕES DE US$)',
-                    data: values,
-                    backgroundColor: 'rgba(0,212,255,1)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: 'white'  // Cor das labels do eixo Y
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            color: 'white'  // Cor das labels do eixo Y
-                        }
-                    }
+            gdpChart.data.labels = labels;
+            gdpChart.data.datasets[0].data = values;
+            gdpChart.update();
+        } else {
+            gdpChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'PIB (MILHÕES DE US$)',
+                        data: values,
+                        backgroundColor: 'rgba(0,212,255,1)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'white'  // Cor das labels da legenda
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo Y
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'white'  // Cor das labels do eixo X
+                            }
                         }
                     },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'  // Cor das labels da legenda
+                            }
+                        },
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
-    function fetchDataAndUpdateChart() {
-        let countries = ['BR', 'US', 'CN', 'IN', 'JP', 'DE', 'GB']; // Lista de códigos de países
+    async function fetchDataAndUpdateChart() {
+        let countries = ['BR', 'US', 'CN', 'IN', 'JP', 'DE']; // Lista de códigos de países
+        const continentSelect = document.getElementById('continentSelect');
+
         if (continentSelect.value == 'Africa') {
-            countries = ['NG', 'ET', 'EG', 'CD', 'ZA', 'KE', 'UG'];
+            countries = ['NG', 'ET', 'EG', 'CD', 'ZA', 'KE'];
         } else if (continentSelect.value == 'Asia') {
-            countries = ['CN', 'JP', 'IN', 'PK', 'BD', 'AZ', 'AF'];
+            countries = ['CN', 'JP', 'IN', 'PK', 'BD', 'AZ'];
         } else if (continentSelect.value == 'Americas') {
-            countries = ['US', 'BR', 'MX', 'CO', 'AR', 'CA', 'VE'];
+            countries = ['US', 'BR', 'MX', 'CO', 'AR', 'CA'];
         } else if (continentSelect.value == 'Europe') {
-            countries = ['RU', 'DE', 'TR', 'PK', 'FR', 'GB', 'IT'];
+            countries = ['RU', 'DE', 'TR', 'FR', 'GB', 'IT'];
         } else if (continentSelect.value == 'Oceania') {
-            countries = ['AU', 'NZ', 'PG', 'FJ', 'SB', 'VU', 'NC'];
+            countries = ['AU', 'NZ', 'PG', 'FJ', 'SB', 'VU'];
         }
+
         const apiUrl = `https://api.worldbank.org/v2/country/${countries.join(';')}/indicator/NY.GDP.MKTP.CD?format=json&date=2022:2022`; // Filtra para o ano mais recente
 
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const gdpData = data[1];
-                // Agrupar os dados por país para pegar o valor mais recente
-                const groupedData = gdpData.reduce((acc, item) => {
-                    acc[item.country.id] = item;
-                    return acc;
-                }, {});
-                const labels = Object.values(groupedData).map(item => item.country.value);
-                const values = Object.values(groupedData).map(item => item.value);
-                createChart(labels, values);
-            });
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            const gdpData = data[1];
+            // Agrupar os dados por país para pegar o valor mais recente
+            const groupedData = gdpData.reduce((acc, item) => {
+                acc[item.country.id] = item;
+                return acc;
+            }, {});
+            const labels = Object.values(groupedData).map(item => item.country.value);
+            const values = Object.values(groupedData).map(item => item.value);
+            createChart(labels, values);
+        } catch (error) {
+            console.error('Erro ao buscar dados:', error);
+        }
     }
 
-    // Obter os dados da API e criar o gráfico
-    fetchDataAndUpdateChart();
+    // Adicionando event listener ao select
+    document.getElementById('continentSelect').addEventListener('change', fetchDataAndUpdateChart);
 
-    // Atualizar os dados e o gráfico a cada 5 segundos (3000 milissegundos)
-    setInterval(fetchDataAndUpdateChart, 3000);
+    // Chamada inicial para preencher o gráfico ao carregar a página
+    fetchDataAndUpdateChart();
 </script>
 
 <script>
