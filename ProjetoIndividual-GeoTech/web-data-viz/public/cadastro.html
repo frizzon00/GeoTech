@@ -20,7 +20,7 @@
             </div>
             <ul class="navbarinicio">
                 <li>
-                    <a href="index.html">Inicio</a>
+                    <a href="index.html">Início</a>
                 </li>
                 <li>
                     <a href="sobre.html">Sobre</a>
@@ -66,7 +66,7 @@
                                 required>
 
                             <label for="email">Seu Continente:</label>
-                            <select name="continente" id="continente_select">
+                            <select name="continente" id="continente_select" style="font-weight: 500;">
                                 <option value="#">Selecione um Continente</option>
                                 <option value="África">África</option>
                                 <option value="América do Norte e Central">América do Norte e Central</option>
@@ -126,7 +126,7 @@
             return false;
         } 
         
-        if (emailVar.indexOf("@") == -1 && emailVar.indexOf(".") == -1) {
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
                 "O Email Deve Conter @ e .";
@@ -134,7 +134,7 @@
         } if (senhaVar != confirmacaoSenhaVar) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
-                "As Senhas Estão Diferentes";
+                "As Senhas Não Estão Compativeis";
             return false;
         } if (senhaVar.length < 6) {
             cardErro.style.display = "block";

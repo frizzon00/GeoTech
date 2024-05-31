@@ -19,7 +19,7 @@
             </div>
             <ul class="navbarinicio">
                 <li>
-                    <a href="index.html">Inicio</a>
+                    <a href="index.html">Início</a>
                 </li>
                 <li>
                     <a href="sobre.html">Sobre</a>
@@ -52,6 +52,7 @@
 
             <div class="form">
                 <div class="esquerda">
+                    <span id="mensagem1">PREENCHA TODOS OS CAMPOS</span>
                     <img src="./assets/terrafone.png" width="400px" height="300px" alt="">
                 </div>
                 <div class="direita">
@@ -70,6 +71,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -89,37 +91,56 @@
         var emailV = email_input.value;
         var messageV = message_input.value;
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/mensagem", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeV,
-                emailServer: emailV,
-                messageServer: messageV
-               
-            }),
-        }).then(function (resposta) {
-            console.log("resposta: ", resposta);
+        if (
+            nomeV == "" ||
+            emailV == "" ||
+            messageV == ""
+        ) {
+            mensagem1.style.display = "block";
+            mensagem1.style.color = 'red';
+            mensagem1.innerHTML = 'PREENCHA TODOS OS CAMPOS!';
+        }
 
-            if (resposta.ok) {
-                // nome_input.value = ""
-                // email_input.value = ""
-                // message.value = ""
-                window.location = "cadastro.html";
+        else if (emailV.indexOf("@") == -1 || emailV.indexOf(".") == -1) {
+            mensagem1.style.display = "block";
+            mensagem1.style.color = 'red';
+            mensagem1.innerHTML = "O EMAIL DEVE CONTER @ E .";
+        } else { // Enviando o valor da nova input
+            fetch("/usuarios/mensagem", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeV,
+                    emailServer: emailV,
+                    messageServer: messageV
 
-            } else {
-                throw "Houve um erro ao tentar entrar em contato!";
-            }
-        })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+                }),
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-        return false; // Adicione isso para cancelar a submissão do formulário
+                if (resposta.ok) {
+                    mensagem1.style.display = "block";
+                    mensagem1.style.color = 'green'
+                    mensagem1.innerHTML = 'Mensagem Enviada!'
+
+                    nome_input.value = ""
+                    email_input.value = ""
+                    message_input.value = ""
+                } else {
+                    throw "Houve um erro ao tentar entrar em contato!";
+                }
+            })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false; // Adicione isso para cancelar a submissão do formulário
+
+
+        }
     }
 </script>

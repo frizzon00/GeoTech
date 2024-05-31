@@ -20,7 +20,7 @@
             </div>
             <ul class="navbarinicio">
                 <li>
-                    <a href="index.html">Inicio</a>
+                    <a href="index.html">Início</a>
                 </li>
                 <li>
                     <a href="sobre.html">Sobre</a>
@@ -45,7 +45,7 @@
     </div>
     <div class="conteudologin">
         <div class="tudologin">
-            <div class="contato">
+            <div class="contatologin">
                 <h2 class="tituloh2">Entre na GeoTech:</h2>
                 <div class="form">
                     <div class="login">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
+                <div class="card_erroLogin" id="cardErro">
                     <span id="mensagem_erro"></span>
                 </div>
             </div>
@@ -90,7 +90,7 @@ var senhaVar = senha_input.value;
 
 if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha Todos os Campos"
+            mensagem_erro.innerHTML = "Preencha Todos os Campos!"
             return false;
         }
 

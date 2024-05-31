@@ -31,11 +31,10 @@ body {
     width: 80%;
     margin: auto;
     display: flex;
-    margin-top: -5px;
 }
 
 .header .container {
-    gap: 26%;
+    gap: 33%;
 }
 
 .titulo {
@@ -49,7 +48,6 @@ body {
 }
 
 .principal {
-    padding: 10px;
     display: flex;
     flex-direction: row;
 }
@@ -152,7 +150,6 @@ a {
     height: 78.1vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-size: cover;
     background-position: center -150px;
@@ -181,7 +178,7 @@ a {
 .chamar {
     font-size: 30px;
     color: #ffffff;
-    
+
 }
 
 .cadastrar {
@@ -200,6 +197,13 @@ a {
     background-color: #4693ff;
 }
 
+.animacao{
+    display: inline-block;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+}
+
 .btncomecar {
     width: 110px;
     height: 50px;
@@ -210,11 +214,45 @@ a {
     color: rgb(0, 0, 0);
     font-size: 17px;
     font-weight: 600;
+    position: relative; /* Necessário para sobreposição */
+    z-index: 2; /* Mantém o botão acima da imagem */
+    animation: pulse 1.5s infinite;
+  }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
-.btncomecar:hover {
-    background-color: #e9e9e9;
-}
+.btncomecar:hover{
+    background-color: #008cff;
+    border: 4px solid rgb(30, 196, 30);
+    color: white;
+  }
+  
+  .imgBotao {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px; /* Ajuste conforme necessário */
+    height: auto;
+    opacity: 0;
+    transform: translateY(-60px); /* Posição inicial acima do botão */
+    transition: opacity 0.2s ease, transform 0.2s ease; /* Transições suaves */
+    z-index: 1; /* Mantém a imagem abaixo do botão inicialmente */
+  }
+  
+  .animacao:hover .imgBotao {
+    opacity: 1;
+    transform: translateY(40px); /* Posição final abaixo do botão */
+  }
 
 
 .tudo {
@@ -235,19 +273,37 @@ a {
 .alerta_erro {
     display: flex;
     justify-content: flex-end;
-    margin-top: 5.8%;
+    margin-top: 5.6%;
+    width: 100%;
 }
 
 .card_erro {
     display: none;
+    position: relative;
     background-color: rgb(197, 216, 235);
     color: black;
-    width: 230px;
+    width: 250px;
     border-radius: 18px;
-    border: #0066ff 3px solid;
+    border: #0066ff 2px solid;
     padding: 10px;
-    margin-right: 10%;
+    margin-right: 7%;
     height: fit-content;
+}
+
+.card_erroLogin {
+    display: none;
+    position: relative;
+    background-color: rgb(197, 216, 235);
+    color: black;
+    width: fit-content;
+    border-radius: 18px;
+    border: #0066ff 2px solid;
+    padding: 10px;
+    margin-right: 5%;
+    margin-top: 5%;
+    height: fit-content;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .card_erro #mensagem_erro {
@@ -267,6 +323,9 @@ a {
     justify-content: center;
 }
 
+option{
+    font-weight: 500;
+}
 
 
 .continentes {
@@ -423,8 +482,7 @@ h5 {
 /* FIM Pagina inicial */
 
 .conteudosobre {
-    background: rgb(53, 169, 208);
-    background: linear-gradient(90deg, rgba(53, 169, 208, 0.6) 0%, rgba(24, 126, 169, 0.9) 35%, rgba(0, 212, 255, 0.6) 100%), url('../assets/fundo3.png');
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.6) 0%, rgba(24, 126, 169, 0.7) 35%, rgba(0, 212, 255, 0.6) 100%), url('../assets/fundo3.png');
     width: 100%;
     height: 94vh;
     display: flex;
@@ -434,16 +492,15 @@ h5 {
     background-position: center -150px;
 }
 
-.conteudoonu{
-    background: rgb(53, 169, 208);
-    background: linear-gradient(90deg, rgba(53, 169, 208, 0.6) 0%, rgba(24, 126, 169, 0.9) 35%, rgba(0, 212, 255, 0.6) 100%), url('../ProjetoIndividual-GeoTech/Site/fundo3.jpg');
+.conteudoonu {
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.6) 0%, rgba(24, 126, 169, 0.7) 35%, rgba(0, 212, 255, 0.6) 100%), url('../ProjetoIndividual-GeoTech/Site/fundo3.jpg');
     width: 100%;
-    height: 145vh;
+    height: 143vh;
     display: flex;
     justify-content: center;
     overflow: hidden;
     background-size: cover;
-    background-position: center -60px;
+    background-position: center -5px;
     background-attachment: scroll;
 }
 
@@ -457,19 +514,20 @@ h5 {
     width: 300px;
     height: 300px;
     float: right;
-    margin-left: 10px;
-    margin-bottom: 20px;
+    margin-left: 15px;
+    border-radius: 10px;
 }
 
 .imgsobre2 {
     width: 300px;
     height: 300px;
     float: left;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
-.imgsobre3{
+.imgsobre3 {
     width: 320px;
     height: 320px;
     float: right;
@@ -489,8 +547,15 @@ p {
 
 .contato {
     color: #ffffff;
-    justify-content: center;
     margin: 30px;
+    position: absolute;
+
+}
+
+.contatologin {
+    color: #ffffff;
+    margin-top: 7%;
+    position: absolute;
 
 }
 
@@ -567,6 +632,17 @@ p {
     align-items: center;
     border: 2px solid #0066ff;
     border-radius: 18px;
+    flex-direction: column;
+}
+
+#mensagem1{
+    display: none;
+    color: red;
+    font-size: 20px;
+    margin-top: -40px;
+    margin-bottom: 10px;
+    width: 70%;
+    text-align: center;
 }
 
 form {
@@ -609,6 +685,7 @@ select {
     border-radius: 3px;
     border: 1px solid #0066ff;
     box-sizing: border-box;
+    font-weight: 500;
 }
 
 input[type="email"],
@@ -619,6 +696,7 @@ textarea {
     border-radius: 3px;
     border: 1px solid #0066ff;
     box-sizing: border-box;
+    font-weight: 500;
 }
 
 input[type="password"],
@@ -629,6 +707,7 @@ textarea {
     border-radius: 3px;
     border: 1px solid #0066ff;
     box-sizing: border-box;
+    font-weight: 500;
 }
 
 input[type="submit"] {
@@ -642,6 +721,7 @@ input[type="submit"] {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-weight: 500;
 }
 
 input[type="button"] {
@@ -655,6 +735,7 @@ input[type="button"] {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-weight: 500;
 }
 
 .buttone {
@@ -668,6 +749,11 @@ input[type="button"] {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-weight: 600;
+}
+
+.buttone:hover {
+    background-color: #4693ff;
 }
 
 .entrar {

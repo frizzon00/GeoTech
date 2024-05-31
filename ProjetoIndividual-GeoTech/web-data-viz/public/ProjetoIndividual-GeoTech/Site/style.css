@@ -32,7 +32,6 @@ body {
     width: 80%;
     margin: auto;
     display: flex;
-    margin-top: -10px;
 }
 
 .header .container {
@@ -50,7 +49,6 @@ body {
 }
 
 .principal {
-    padding: 10px;
     display: flex;
     flex-direction: row;
 }
@@ -270,13 +268,6 @@ a {
     font-size: 17px;
 }
 
-/* .btncomecar:hover {
-    background-color: #ffffff;
-    color: rgb(53, 169, 208);
-} */
-
-
-
 .inicio1 {
     display: flex;
     flex-direction: row;
@@ -288,8 +279,6 @@ a {
     flex-direction: row;
     justify-content: center;
 }
-
-
 
 .continentes {
     margin: 30px;
@@ -382,11 +371,23 @@ a {
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s;
-    animation: mudarBorda 4s linear infinite;
+    animation: pulse 1.55s infinite, mudarBorda 2s linear infinite;
 }
 
-.jogossp:hover {
-    transform: scale(1.2);
+option{
+    font-weight: 500;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.12);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 .desafio,
@@ -512,7 +513,7 @@ h5 {
     justify-content: start;
     overflow: hidden;
     background-size: cover;
-    background-position: center -60px;
+    background-position: center -10px;
     flex-direction: column;
     background-attachment: scroll;
 }
@@ -705,6 +706,17 @@ p {
     align-items: center;
     border: 2px solid #0066ff;
     border-radius: 18px;
+    flex-direction: column;
+}
+
+#mensagem1{
+    display: none;
+    color: red;
+    font-size: 20px;
+    margin-top: -40px;
+    margin-bottom: 10px;
+    width: 70%;
+    text-align: center;
 }
 
 form {
@@ -768,6 +780,7 @@ textarea {
     margin-bottom: 10px;
     border-radius: 3px;
     padding: 3px;
+    font-weight: 500;
 }
 
 input[type="email"] {
@@ -799,6 +812,7 @@ input[type="submit"] {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-weight: 600;
 }
 
 input[type="submit"]:hover {
@@ -813,6 +827,7 @@ input[type="submit"]:hover {
     border-radius: 3px;
     border: 1px solid #0066ff;
     box-sizing: border-box;
+    font-weight: 500;
 }
 
 .enviar {

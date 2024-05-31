@@ -53,6 +53,7 @@
             </p>
             <div class="form">
                 <div class="esquerda">
+                    <span id="mensagem1">PREENCHA TODOS OS CAMPOS</span>
                     <img src="../../../assets/terrafone.png" width="400px" height="300px" alt="">
                 </div>
                 <div class="direita">
@@ -65,6 +66,7 @@
 
                         <label for="feedback">Tipo do Feedback:</label>
                         <select id="tipoFeedback">
+                            <option value="#">Selecione Um Tipo de Feedback</option>
                             <option value="Crítica">Crítica</option>
                             <option value="Sugestão">Sugestão</option>
                             <option value="Elogio">Elogio</option>
@@ -112,36 +114,52 @@
         var tipoV = tipoFeedback.value;
         var messageV = message_input.value;
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/feedback", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeV,
-                emailServer: emailV,
-                tipoServer: tipoV,
-                messageServer: messageV
+        if (nomeV == undefined ||
+            emailV == undefined) {
+            mensagem1.style.display = "block";
+            mensagem1.style.color = 'red';
+            mensagem1.innerHTML = 'LOGUE PARA ENVIAR FEEDBACK!';
+        } else if (
+            tipoV == "#" ||
+            messageV == ""
+        ) {
+            mensagem1.style.display = "block";
+            mensagem1.style.color = 'red';
+            mensagem1.innerHTML = 'PREENCHA TODOS OS CAMPOS!';
+        } else { // Enviando o valor da nova input
+            fetch("/usuarios/feedback", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeV,
+                    emailServer: emailV,
+                    tipoServer: tipoV,
+                    messageServer: messageV
 
-            }),
-        }).then(function (resposta) {
-            console.log("resposta: ", resposta);
+                }),
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
+                if (resposta.ok) {
+                    mensagem1.style.display = "block";
+                    mensagem1.style.color = 'green';
+                    mensagem1.innerHTML = 'Mensagem Enviada!'
 
-                window.location = "index.html";
+                    tipoFeedback.value = "#"
+                    message_input.value = ""
+                } else {
+                    throw "Houve um erro ao enviar feedback!";
+                }
+            })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
 
-            } else {
-                throw "Houve um erro ao enviar feedback!";
-            }
-        })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-
-        return false; // Adicione isso para cancelar a submissão do formulário
+            return false; // Adicione isso para cancelar a submissão do formulário
+        }
     }
 </script>
