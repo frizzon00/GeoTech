@@ -4,6 +4,26 @@ var router = express.Router();
 var usuarioController = require("../controllers/usuarioController");
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
+
+router.get("/africa", function (req, res) {
+    usuarioController.africa(req, res);
+})
+router.get("/asia", function (req, res) {
+    usuarioController.asia(req, res);
+})
+router.get("/americaN", function (req, res) {
+    usuarioController.americaN(req, res);
+})
+router.get("/americaS", function (req, res) {
+    usuarioController.americaS(req, res);
+})
+router.get("/europa", function (req, res) {
+    usuarioController.europa(req, res);
+})
+router.get("/oceania", function (req, res) {
+    usuarioController.oceania(req, res);
+})
+
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })

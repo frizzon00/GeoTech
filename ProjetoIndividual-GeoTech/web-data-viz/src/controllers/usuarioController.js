@@ -1,5 +1,96 @@
 var usuarioModel = require("../models/usuarioModel");
 
+function africa(req, res) {
+    usuarioModel.africa()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ continente: resultado[0].qtd });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function asia(req, res) {
+    usuarioModel.asia()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ continente: resultado[0].qtd });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function americaN(req, res) {
+    usuarioModel.americaN()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ continente: resultado[0].qtd });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function americaS(req, res) {
+    usuarioModel.americaS()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ continente: resultado[0].qtd });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function europa(req, res) {
+    usuarioModel.europa()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ continente: resultado[0].qtd });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function oceania(req, res) {
+    usuarioModel.oceania()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ continente: resultado[0].qtd });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+
 function autenticar(req, res) {
     console.log('chegou no autenticar')
     var email = req.body.emailServer;
@@ -344,5 +435,11 @@ module.exports = {
     pais,
     forca,
     flag,
-    quiz
+    quiz,
+    africa,
+    asia,
+    americaN,
+    americaS,
+    europa,
+    oceania
 }

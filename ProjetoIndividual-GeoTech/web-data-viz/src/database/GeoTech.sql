@@ -72,7 +72,7 @@ insert into jogos values
 (default, 'Jogo Da Forca', 'Um jogo onde o jogador recebe uma dica sobre um país e deve adivinhar o nome letra por letra antes que a forca seja completada.','Médio'),
 (default, 'Jogo Das Bandeiras', 'Um jogo onde o jogador vê três bandeiras e deve arrastá-las para os nomes corretos dos países. O objetivo é combinar cada bandeira com seu respectivo país corretamente.','Baixo');
 
-create table jogadas(
+create table historico(
 idTentativa int auto_increment,
 pkUsuario int,
 pkJogo int,
@@ -85,3 +85,5 @@ primary key (idTentativa, pkUsuario, pkJogo)
 select * from jogos;
 
 select * from jogadas;
+
+select usuario.nome, jogos.nome, dtJogada as 'Data de Início' from jogadas join jogos on pkJogo = idJogo join usuario on pkUsuario = idUsuario;

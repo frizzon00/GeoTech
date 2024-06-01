@@ -1,5 +1,59 @@
 var database = require("../database/config")
 
+function africa() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function africa()");
+    var instrucaoSql = `
+    select count(continente) as qtd from usuario where continente = 'África';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function asia() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function africa()");
+    var instrucaoSql = `
+    select count(continente) as qtd from usuario where continente = 'Ásia';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function americaN() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function africa()");
+    var instrucaoSql = `
+    select count(continente) as qtd from usuario where continente = 'América do Norte e Central';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function americaS() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function africa()");
+    var instrucaoSql = `
+    select count(continente) as qtd from usuario where continente = 'América do Sul';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function europa() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function africa()");
+    var instrucaoSql = `
+    select count(continente) as qtd from usuario where continente = 'Europa';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function oceania() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function africa()");
+    var instrucaoSql = `
+    select count(continente) as qtd from usuario where continente = 'Oceânia';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucaoSql = `
@@ -49,7 +103,7 @@ function memory1(id,jogo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO jogadas (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
+        INSERT INTO historico (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -60,7 +114,7 @@ function memory2(id,jogo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO jogadas (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
+        INSERT INTO historico (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -73,7 +127,7 @@ function pais(id,jogo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO jogadas (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
+        INSERT INTO historico (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -86,7 +140,7 @@ function forca(id,jogo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO jogadas (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
+        INSERT INTO historico (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -99,7 +153,7 @@ function flag(id,jogo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO jogadas (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
+        INSERT INTO historico (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -112,7 +166,7 @@ function quiz(id, jogo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO jogadas (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
+        INSERT INTO historico (pkUsuario, pkJogo, dtJogada) VALUES (${id}, ${jogo}, NOW());`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 
@@ -128,5 +182,11 @@ module.exports = {
     pais,
     forca,
     flag,
-    quiz
+    quiz,
+    africa,
+    asia,
+    americaN,
+    americaS,
+    europa,
+    oceania
 };
