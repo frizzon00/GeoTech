@@ -1,6 +1,6 @@
 const wordList = [
     {
-        word: "jrasil",
+        word: "brasil",
         hint: "O maior país da América do Sul, conhecido por sua Floresta Amazônica e pelo Carnaval."
       },
       {

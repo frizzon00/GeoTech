@@ -269,7 +269,7 @@ function startTimerLine(time) {
     function timer() {
         time += 1; // aumenta o valor de tempo em 1
         time_line.style.width = time + "px"; // aumenta a largura de time_line em pixels pelo valor de tempo
-        if (time > 549) { // se o valor de tempo for maior que 549
+        if (time > 535.9) { // se o valor de tempo for maior que 549
             clearInterval(counterLine); // limpa counterLine
         }
     }

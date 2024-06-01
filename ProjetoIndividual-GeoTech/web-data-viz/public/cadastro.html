@@ -58,8 +58,7 @@
                             <input type="email" id="email_input" name="email" placeholder="Ex: xxxx@xxx.com" required>
 
                             <label for="email">Senha:</label>
-                            <input type="password" id="senha_input" name="password" placeholder="xxxxxxx"
-                                required>
+                            <input type="password" id="senha_input" name="password" placeholder="xxxxxxx" required>
 
                             <label for="email">Confirmar Senha:</label>
                             <input type="password" id="confirmacao" name="password" placeholder="Repita a senha"
@@ -74,7 +73,7 @@
                                 <option value="Ásia">Ásia</option>
                                 <option value="Europa">Europa</option>
                                 <option value="Oceânia">Oceânia</option>
-                             </select>
+                            </select>
 
 
                             <label for="email">Telefone:</label>
@@ -83,7 +82,7 @@
                             <div class="enviarcadastro">
                                 <button class="cadastrar" onclick="cadastrar()">Cadastrar</button>
                             </div>
-                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,7 +109,9 @@
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao.value;
         var continenteVar = continente_select.value;
-        var telefoneVar = telefone.value
+        var telefoneVar = telefone.value;
+        var caracteresEspeciais = ["!", "@", "#", "$", "%", "&", "_", "?", "*", "(", ")"];
+        var temCaracterEspecial = false;
 
         if (
             nomeVar == "" ||
@@ -124,8 +125,8 @@
             mensagem_erro.innerHTML =
                 "Preencha Todos os Campos!";
             return false;
-        } 
-        
+        }
+
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
@@ -139,7 +140,21 @@
         } if (senhaVar.length < 6) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
-                "Senha Deve Conter Pelo Menos 6 Carateres";
+                "Senha Deve Conter no Mínimo 6 Carateres";
+            return false;
+        }
+
+        for (var lendoSenha = 0; lendoSenha < senhaVar.length; lendoSenha++) {
+            if (caracteresEspeciais.includes(senhaVar[lendoSenha])) {
+                temCaracterEspecial = true;
+                break;
+            }
+        }
+
+        if (!temCaracterEspecial) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Senha Deve Conter no Mínimo um Caracter Especial";
             return false;
         }
 

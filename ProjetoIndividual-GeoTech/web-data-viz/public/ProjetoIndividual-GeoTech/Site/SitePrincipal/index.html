@@ -134,11 +134,22 @@
     const div = document.getElementById(continenteUser);
 
     // Altere o estilo da borda da div
-    div.style.border = "3px solid yellow";
-    div.style.animation = "pulse 1.55s infinite";
+    div.style.animation = "pulse 1.55s infinite, mudarBorda 4s linear infinite";
 
+    const continenteUsuario = sessionStorage.getItem('CONTINENTE_USUARIO');
 
+    // Selecione a div correspondente ao continente do usuário
+    const divContinenteUsuario = document.getElementById(continenteUsuario);
 
+    // Verifique se a div do continente do usuário existe
+    if (divContinenteUsuario) {
+        // Obtenha o elemento <h5> dentro da div e adicione o texto "Seu Continente" antes do nome do continente
+        const h5Element = divContinenteUsuario.querySelector('h5');
+        if (h5Element) {
+            h5Element.textContent = `Seu continente: ${h5Element.textContent}`;
+            h5Element.style.animation = "mudarTitulo 4s linear infinite";
+        }
+    }
     function qtdUser() {
         africa()
         asia()

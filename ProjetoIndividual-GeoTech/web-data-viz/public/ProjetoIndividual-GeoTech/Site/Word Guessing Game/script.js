@@ -94,7 +94,7 @@ const generateWord = () => {
 
   //Display each element as span
   userInpSection.innerHTML = displayItem;
-  userInpSection.innerHTML += `<div id='chanceCount'>Erros: ${lossCount}</div>`;
+  userInpSection.innerHTML += `<div id='chanceCount'>Chances: ${lossCount}</div>`;
 };
 
 //Initial Function
@@ -150,7 +150,7 @@ const init = () => {
         lossCount -= 1;
         document.getElementById(
           "chanceCount"
-        ).innerText = `Chances Left: ${lossCount}`;
+        ).innerText = `Chances: ${lossCount}`;
         message.innerText = `Letra Incorreta`;
         message.style.color = "#ff0000";
         if (lossCount == 0) {

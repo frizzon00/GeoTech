@@ -73,7 +73,7 @@ const checkGameStatus = () => {
     startButton.innerHTML = `Jogar Novamente`;
     endGame(); // Encerra o jogo quando vencer
   } else if (count == 3 && wrongCount <= 3) {
-    result.innerText = `Você acertou ${wrongCount} de 3 Bandeiras\nTente Novamente`;
+    result.innerText = `Você acertou ${count - wrongCount} de 3 Bandeiras\nTente Novamente`;
     startButton.innerHTML = `Jogar Novamente`;
     endGame(); // Encerra o jogo quando perder
   }
