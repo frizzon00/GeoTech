@@ -37,7 +37,7 @@
                     |
                 </li>
                 <li onclick="sair()">
-                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span> 
+                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
                 </li>
             </ul>
         </div>
@@ -45,55 +45,67 @@
     <div class="conteudo">
         <h1 style="color: white; margin-bottom: -20px ;">Conheça os Continentes e seus Países</h1>
         <div class="inicio1">
-            <div class="continentes">
-                <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Africa_%28orthographic_projection%29.svg/800px-Africa_%28orthographic_projection%29.svg.png" alt="">
+            <div class="continentes" id="África">
+                <img class="cardimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Africa_%28orthographic_projection%29.svg/800px-Africa_%28orthographic_projection%29.svg.png"
+                    alt="">
                 <h5>África</h5>
                 <p class="quantidade" id="userAfrica">Usuarios:</p>
                 <a href="Continentes/africa.html">
                     <button type="button" class="botaoGraficos">Ver Informações</button>
-                  </a>
+                </a>
             </div>
-            <div class="continentes">
-                <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Location_North_America.svg/250px-Location_North_America.svg.png" alt="">
+            <div class="continentes" id="América do Norte e Central">
+                <img class="cardimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Location_North_America.svg/250px-Location_North_America.svg.png"
+                    alt="">
                 <h5>América do Norte e Central</h5>
                 <p class="quantidade" id="userAmericaN">Usuarios:</p>
                 <a href="Continentes/centroNorte.html">
                     <button type="button" class="botaoGraficos">Ver Informações</button>
-                  </a>
+                </a>
             </div>
-            <div class="continentes">
-                <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Latin_America_%28orthographic_projection%29.svg/1200px-Latin_America_%28orthographic_projection%29.svg.png" alt="">
+            <div class="continentes" id="América do Sul">
+                <img class="cardimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Latin_America_%28orthographic_projection%29.svg/1200px-Latin_America_%28orthographic_projection%29.svg.png"
+                    alt="">
                 <h5>América do Sul</h5>
                 <p class="quantidade" id="userAmericaS">Usuarios:</p>
                 <a href="Continentes/sul.html">
                     <button type="button" class="botaoGraficos">Ver Informações</button>
-                  </a>
+                </a>
             </div>
-             </div>
+        </div>
         <div class="inicio2">
-            <div class="continentes">
-                <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/250px-Asia_%28orthographic_projection%29.svg.png" alt="">
+            <div class="continentes" id="Ásia">
+                <img class="cardimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/250px-Asia_%28orthographic_projection%29.svg.png"
+                    alt="">
                 <h5>Ásia</h5>
                 <p class="quantidade" id="userAsia">Usuarios:</p>
                 <a href="Continentes/asia.html">
                     <button type="button" class="botaoGraficos">Ver Informações</button>
-                  </a>
+                </a>
             </div>
-            <div class="continentes">
-                <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg/250px-Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg.png" alt="">
+            <div class="continentes" id="Europa">
+                <img class="cardimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg/250px-Europe_orthographic_Caucasus_Urals_boundary_%28with_borders%29.svg.png"
+                    alt="">
                 <h5>Europa</h5>
                 <p class="quantidade" id="userEuropa">Usuarios:</p>
                 <a href="Continentes/europa.html">
                     <button type="button" class="botaoGraficos">Ver Informações</button>
-                  </a>
+                </a>
             </div>
-            <div class="continentes">
-                <img class="cardimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Oceania_%28orthographic_projection%29.svg/250px-Oceania_%28orthographic_projection%29.svg.png" alt="">
+            <div class="continentes" id="Oceânia">
+                <img class="cardimg"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Oceania_%28orthographic_projection%29.svg/250px-Oceania_%28orthographic_projection%29.svg.png"
+                    alt="">
                 <h5>Oceânia</h5>
                 <p class="quantidade" id="userOceania">Usuarios:</p>
                 <a href="Continentes/oceania.html">
                     <button type="button" class="botaoGraficos">Ver Informações</button>
-                  </a>
+                </a>
             </div>
         </div>
     </div>
@@ -105,6 +117,8 @@
 </html>
 
 <script>
+
+
     function sair() {
         sessionStorage.clear();
         window.location = "../../../index.html";
@@ -113,19 +127,31 @@
     const nomeUser = sessionStorage.NOME_USUARIO;
     const idUser = sessionStorage.ID_USUARIO;
     const emailUser = sessionStorage.EMAIL_USUARIO;
-    const continenteUser = sessionStorage.CONTINENTE_USUARIO;
+    // Recupere o texto armazenado na sessionStorage
+    const continenteUser = sessionStorage.getItem('CONTINENTE_USUARIO');
 
-    function qtdUser(){
-            africa()
-            asia()
-            americaN()
-            americaS()
-            europa()
-            oceania()
-        }
+    // Selecione a div com o id igual ao texto armazenado
+    const div = document.getElementById(continenteUser);
 
-        function africa() {
-            fetch("/usuarios/africa").then(function (resposta) {
+    // Altere o estilo da borda da div
+    div.style.border = "3px solid yellow";
+    div.style.animation = "pulse 1.55s infinite";
+
+
+
+    function qtdUser() {
+        africa()
+        asia()
+        americaN()
+        americaS()
+        europa()
+        oceania()
+
+
+    }
+
+    function africa() {
+        fetch("/usuarios/africa").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
@@ -142,10 +168,10 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
-        }
+    }
 
-        function asia() {
-            fetch("/usuarios/asia").then(function (resposta) {
+    function asia() {
+        fetch("/usuarios/asia").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
@@ -162,10 +188,10 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
-        }
+    }
 
-        function americaN() {
-            fetch("/usuarios/americaN").then(function (resposta) {
+    function americaN() {
+        fetch("/usuarios/americaN").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
@@ -182,10 +208,10 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
-        }
+    }
 
-        function americaS() {
-            fetch("/usuarios/americaS").then(function (resposta) {
+    function americaS() {
+        fetch("/usuarios/americaS").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
@@ -202,10 +228,10 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
-        }
+    }
 
-        function europa() {
-            fetch("/usuarios/europa").then(function (resposta) {
+    function europa() {
+        fetch("/usuarios/europa").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
@@ -222,10 +248,10 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
-        }
+    }
 
-        function oceania() {
-            fetch("/usuarios/oceania").then(function (resposta) {
+    function oceania() {
+        fetch("/usuarios/oceania").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     throw "Nenhum resultado encontrado!!";
@@ -242,6 +268,8 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
-        }
+    }
+
+
 
 </script>

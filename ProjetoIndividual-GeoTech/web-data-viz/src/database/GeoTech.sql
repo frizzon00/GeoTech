@@ -13,6 +13,9 @@ continente varchar(200),
 telefone varchar(20)
 );
 
+insert into usuario values
+(null,'Alexandre','teste@teste.com','teste123','Europa','(11) 99999-0000');
+
 create table contato(
 idContato int primary key auto_increment,
 nome varchar(45),
@@ -84,6 +87,6 @@ primary key (idTentativa, pkUsuario, pkJogo)
 
 select * from jogos;
 
-select * from jogadas;
+select * from historico;
 
-select usuario.nome, jogos.nome, dtJogada as 'Data de Início' from jogadas join jogos on pkJogo = idJogo join usuario on pkUsuario = idUsuario;
+select usuario.nome, jogos.nome, dtJogada as 'Data de Início' from historico join jogos on pkJogo = idJogo join usuario on pkUsuario = idUsuario;
