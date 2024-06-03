@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="qtdUser(), qtdTentativas(), qtdMensagens()">
+<body onload="qtdUser(), qtdTentativas(), qtdMensagens(), totalFeedbacks(), totalContatos()">
     <div class="header">
 
         <div class="container">
@@ -50,8 +50,9 @@
             <canvas id="jogos" width="380px" height="210px"></canvas>
         </div>
         <div class="monitoramento2">
-            <div class="totalContatos">Total de Mensagens:</div>
+            <div class="totalContatos">Total de Feedbacks:<span id="qtdfeedback"></span></div>
             <canvas id="feedback" width="350px" height="190px"></canvas>
+            <div class="totalContatos">Total de Contatos:<span id="qtdcontato"></span></div>
         </div>
     </div>
     </div>
@@ -61,6 +62,49 @@
 </body>
 
 </html>
+
+<script>
+
+    function totalFeedbacks() {
+        fetch("/usuarios/totalFeedbacks").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    throw "Nenhum resultado encontrado!!";
+                }
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    qtdfeedback.innerHTML = resposta.total
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function totalContatos() {
+        fetch("/usuarios/totalContatos").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    throw "Nenhum resultado encontrado!!";
+                }
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    qtdcontato.innerHTML = resposta.total
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+</script>
 <script>
     setInterval(qtdUser, 10000);
 
@@ -198,7 +242,7 @@
                     legend: {
                         labels: {
                             color: 'white',
-                            
+
                         }
                     }
                 }
@@ -294,7 +338,7 @@
                 throw new Error('Houve um erro na API!');
             }
             const dados = await resposta.json();
-            jog6 = dados.jogo;
+            jogo6 = dados.jogo;
         } catch (error) {
             console.error(error);
         }
@@ -417,55 +461,55 @@
         const ctx3 = document.getElementById('feedback');
 
         new Chart(ctx3, {
-    type: 'pie',
-    data: {
-        labels: ['Elogio', 'Crítica', 'Sugestão', 'Contatos'],
-        datasets: [{
-            label: 'Número de Mensagens',
-            data: [elogio, critica, sugestao, contato],
-            backgroundColor: [
-                'rgba(0, 212, 255, 1)', // Cor para Elogio
-                'rgba(255, 0, 0, 1)',    // Cor para Crítica
-                'rgba(255, 100, 0, 1)',  // Cor para Sugestão
-                'rgba(255, 202, 0, 1)'   // Cor para Contatos
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                display: false,
-                title: {
-                    display: true,
-                    color: 'white'  // Cor do título do eixo Y
-                },
-                ticks: {
-                    color: 'white'  // Cor das labels do eixo Y
-                }
+            type: 'pie',
+            data: {
+                labels: ['Elogio', 'Crítica', 'Sugestão', 'Contatos'],
+                datasets: [{
+                    label: 'Número de Mensagens',
+                    data: [elogio, critica, sugestao, contato],
+                    backgroundColor: [
+                        'rgba(0, 212, 255, 1)', // Cor para Elogio
+                        'rgba(255, 0, 0, 1)',    // Cor para Crítica
+                        'rgba(255, 100, 0, 1)',  // Cor para Sugestão
+                        'rgba(255, 202, 0, 1)'   // Cor para Contatos
+                    ],
+                    borderWidth: 1
+                }]
             },
-            x: {
-                beginAtZero: true,
-                display: false,
-                title: {
-                    display: true,
-                    color: 'white'  // Cor do título do eixo Y
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        display: false,
+                        title: {
+                            display: true,
+                            color: 'white'  // Cor do título do eixo Y
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    },
+                    x: {
+                        beginAtZero: true,
+                        display: false,
+                        title: {
+                            display: true,
+                            color: 'white'  // Cor do título do eixo Y
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    },
                 },
-                ticks: {
-                    color: 'white'  // Cor das labels do eixo Y
-                }
-            },
-        },
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white'  // Cor das labels da legenda
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'  // Cor das labels da legenda
+                        }
+                    }
                 }
             }
-        }
-    }
-});
+        });
 
     }
 </script>

@@ -85,7 +85,7 @@ function forca1() {
 function bandeira1() {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function bandeira1()");
     var instrucaoSql = `
-    select count(idTentativa) as qtdTentativas from historico where pkJogo = 1;
+    select count(idTentativa) as qtdTentativas from historico where pkJogo = 6;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -276,6 +276,22 @@ function quiz(id, jogo) {
 
 }
 
+function totalFeedbacks() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function totalFeedbacks(): ")
+    var instrucaoSql = `
+    select count(idFeedback) as totalFeedbacks from feedback;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function totalContatos() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function totalContatos(): ")
+    var instrucaoSql = `
+    select count(idContato) as totalContatos from contato;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -303,5 +319,7 @@ module.exports = {
     elogios,
     criticas,
     contatos,
-    conexao
+    conexao,
+    totalContatos,
+    totalFeedbacks
 };

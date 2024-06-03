@@ -68,14 +68,6 @@ select count(idFeedback) as qtd from feedback where tipo = 'Contato';
 select count(idFeedback) as totalFeedbacks from feedback;
 select count(idContato) as totalContatos from contato;
 
-SELECT totalFeedbacks + totalContatos AS 'Total de Mensagens'
-FROM (
-    select count(idFeedback) as totalFeedbacks from feedback
-) AS q1,
-(
-   select count(idContato) as totalContatos from contato
-) AS q2;
-
 -- CREATE TABLE JOGOS
 
 create table jogos(

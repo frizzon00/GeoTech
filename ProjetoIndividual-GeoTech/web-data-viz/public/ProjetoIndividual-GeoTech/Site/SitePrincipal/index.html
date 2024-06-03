@@ -14,7 +14,11 @@
     <div class="header">
 
         <div class="container" id="container">
-            <div class="principal">
+            <div id="principal" class="principal"><a id="gerenciamentoBtn" href="monitoramento.html" style="display: none;
+                flex-direction: column;
+                justify-content: center;
+                cursor:auto;">
+                    <i class="fa-solid fa-gear" style="color: #ffffff; font-size: 25px;cursor: pointer;"></i></a>
                 <img src="../../../assets/GeoTech.png" alt="" class="logo" width="55px">
                 <h1 id="tituloNome" class="titulo">GeoTech</h1>
             </div>
@@ -129,37 +133,43 @@
     const idUser = sessionStorage.ID_USUARIO;
 
     if (idUser == 1) {
-        container.innerHTML = `<div class="principal" style="margin-left: -25px;"><a href="monitoramento.html" style="display: flex;
-                flex-direction: column;
-                justify-content: center;
-                cursor:auto;">
-                    <i class="fa-solid fa-gear" style="color: #ffffff; font-size: 25px;cursor: pointer;"></i></a>
-                <img src="../../../assets/GeoTech.png" alt="" class="logo" width="55px">
-                <h1 id="tituloNome" class="titulo">GeoTech</h1>
-            </div>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Início</a>
-                </li>
-                <li>
-                    <a href="curiosidadades.html">Curiosidades</a>
-                </li>
-                <li>
-                    <a href="jogos.html">Jogos</a>
-                </li>
-                <li>
-                    <a style="display: flex; width: max-content;" href="real.html">Tempo Real</a>
-                </li>
-                <li>
-                    <a href="contato.html">Feedback</a>
-                </li>
-                <li>
-                    |
-                </li>
-                <li onclick="sair()">
-                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
-                </li>
-            </ul>`
+
+        gerenciamentoBtn.style.display = 'flex';
+        principal.style.marginLeft = "-25px";
+
+
+
+        // container.innerHTML = `<div class="principal" style="margin-left: -25px;"><a href="monitoramento.html" style="display: flex;
+        //         flex-direction: column;
+        //         justify-content: center;
+        //         cursor:auto;">
+        //             <i class="fa-solid fa-gear" style="color: #ffffff; font-size: 25px;cursor: pointer;"></i></a>
+        //         <img src="../../../assets/GeoTech.png" alt="" class="logo" width="55px">
+        //         <h1 id="tituloNome" class="titulo">GeoTech</h1>
+        //     </div>
+        //     <ul class="navbar">
+        //         <li>
+        //             <a href="index.html">Início</a>
+        //         </li>
+        //         <li>
+        //             <a href="curiosidadades.html">Curiosidades</a>
+        //         </li>
+        //         <li>
+        //             <a href="jogos.html">Jogos</a>
+        //         </li>
+        //         <li>
+        //             <a style="display: flex; width: max-content;" href="real.html">Tempo Real</a>
+        //         </li>
+        //         <li>
+        //             <a href="contato.html">Feedback</a>
+        //         </li>
+        //         <li>
+        //             |
+        //         </li>
+        //         <li onclick="sair()">
+        //             <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
+        //         </li>
+        //     </ul>`
     }
     const emailUser = sessionStorage.EMAIL_USUARIO;
     // Recupere o texto armazenado na sessionStorage

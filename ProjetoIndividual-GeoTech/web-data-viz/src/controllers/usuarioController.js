@@ -241,7 +241,7 @@ function autenticar(req, res) {
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
+        res.status(400).send("Sua senha está indefinid!");
     } else {
 
         usuarioModel.autenticar(email, senha)
@@ -594,6 +594,36 @@ function quiz(req, res) {
         );
 }
 
+function totalFeedbacks(req, res) {
+    usuarioModel.totalFeedbacks()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ total: resultado[0].totalFeedbacks });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function totalContatos(req, res) {
+    usuarioModel.totalContatos()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json({ total: resultado[0].totalContatos });
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -621,5 +651,7 @@ module.exports = {
     elogios,
     criticas,
     contatos,
-    conexao
+    conexao,
+    totalContatos,
+    totalFeedbacks
 }

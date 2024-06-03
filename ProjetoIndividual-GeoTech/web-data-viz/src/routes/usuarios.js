@@ -94,6 +94,14 @@ router.post("/feedback", function (req, res) {
 });
 router.post("/conexao", function (req, res) {
     usuarioController.conexao(req, res);
+})
+
+router.get("/totalFeedbacks", function (req, res) {
+    usuarioController.totalFeedbacks(req, res);
+})
+
+router.get("/totalContatos", function (req, res) {
+    usuarioController.totalContatos(req, res);
 });
 
 module.exports = router;
