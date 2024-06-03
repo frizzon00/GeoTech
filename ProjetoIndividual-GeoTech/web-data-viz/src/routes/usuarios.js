@@ -38,6 +38,38 @@ router.post("/memory1", function (req, res) {
     usuarioController.memory1(req, res);
 })
 
+router.get("/memoryGame1", function (req, res) {
+    usuarioController.memoryGame1(req, res);
+})
+router.get("/quiz1", function (req, res) {
+    usuarioController.quiz1(req, res);
+})
+router.get("/memoryGame2", function (req, res) {
+    usuarioController.memoryGame2(req, res);
+})
+router.get("/pais1", function (req, res) {
+    usuarioController.pais1(req, res);
+})
+router.get("/forca1", function (req, res) {
+    usuarioController.forca1(req, res);
+})
+router.get("/bandeira1", function (req, res) {
+    usuarioController.bandeira1(req, res);
+})
+
+router.get("/sugestoes", function (req, res) {
+    usuarioController.sugestoes(req, res);
+})
+router.get("/elogios", function (req, res) {
+    usuarioController.elogios(req, res);
+})
+router.get("/criticas", function (req, res) {
+    usuarioController.criticas(req, res);
+})
+router.get("/contatos", function (req, res) {
+    usuarioController.contatos(req, res);
+})
+
 router.post("/memory2", function (req, res) {
     usuarioController.memory2(req, res);
 })
@@ -59,6 +91,9 @@ router.post("/forca", function (req, res) {
 })
 router.post("/feedback", function (req, res) {
     usuarioController.feedback(req, res);
+});
+router.post("/conexao", function (req, res) {
+    usuarioController.conexao(req, res);
 });
 
 module.exports = router;

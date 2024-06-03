@@ -112,6 +112,56 @@ body {
     color: #ffffff;
 }
 
+.conteudoMonitoramento {
+    background: rgb(53, 169, 208);
+    background: linear-gradient(90deg, rgba(53, 169, 208, 0.5) 0%, rgba(24, 126, 169, 0.5) 35%, rgba(0, 212, 255, 0.5) 100%), url('../Site/fundo3.png');
+    width: 100%;
+    height: 129vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center -10px;
+    color: #ffffff;
+    flex-direction: column;
+}
+
+.monitoramento1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 39%;
+    gap: 100px;
+    border-bottom: #ffffff 1px solid;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.monitoramento2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 40%;
+}
+
+.totalContatos{
+    width: 320px;
+    height: 320px;
+    border: 5px solid #30aad2;
+    border-radius: 10px;
+    background-color: rgb(197, 216, 235);
+    color: #1d6d92;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 24px;
+}
+
 
 #continentSelect {
     background-color: #8fe2de;

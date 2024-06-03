@@ -13,8 +13,14 @@ continente varchar(200),
 telefone varchar(20)
 );
 
-insert into usuario values
-(null,'Alexandre','teste@teste.com','teste123','Europa','(11) 99999-0000');
+-- SELECTS USUARIOS POR CONTINENTE
+
+select count(continente) from usuario where continente = 'Europa';
+select count(continente) from usuario where continente = 'África';
+select count(continente) from usuario where continente = 'Oceânia';
+select count(continente) from usuario where continente = 'Ásia';
+select count(continente) from usuario where continente = 'América do Sul';
+select count(continente) from usuario where continente = 'América do Norte e Central';
 
 create table contato(
 idContato int primary key auto_increment,
@@ -34,10 +40,9 @@ dtFeedback DATETIME
 );
 
 create table conexao(
-idConexao int,
+pkFeedback int auto_increment,
 pkUsuario int,
-pkFeedback int,
-primary key (pkUsuario, pkFeedback, idConexao),
+primary key (pkUsuario, pkFeedback),
 foreign key (pkUsuario) references usuario(idUsuario),
 foreign key (pkFeedback) references feedback(idFeedback),
 dtConexao DATETIME
@@ -48,14 +53,28 @@ select * from contato;
 select * from feedback;
 select * from conexao;
 
--- SELECTS USUARIOS POR CONTINENTE
+drop table conexao;
+drop table feedback;
 
-select count(continente) from usuario where continente = 'Europa';
-select count(continente) from usuario where continente = 'África';
-select count(continente) from usuario where continente = 'Oceânia';
-select count(continente) from usuario where continente = 'Ásia';
-select count(continente) from usuario where continente = 'América do Sul';
-select count(continente) from usuario where continente = 'América do Norte e Central';
+-- SELECTS FEEDBACKS POR CATEGORIA
+
+select count(idFeedback) as qtd from feedback where tipo = 'Crítica';
+select count(idFeedback) as qtd from feedback where tipo = 'Sugestão';
+select count(idFeedback) as qtd from feedback where tipo = 'Elogio';
+select count(idFeedback) as qtd from feedback where tipo = 'Contato';
+
+-- SELECT TOTAL DE MENSAGENS
+
+select count(idFeedback) as totalFeedbacks from feedback;
+select count(idContato) as totalContatos from contato;
+
+SELECT totalFeedbacks + totalContatos AS 'Total de Mensagens'
+FROM (
+    select count(idFeedback) as totalFeedbacks from feedback
+) AS q1,
+(
+   select count(idContato) as totalContatos from contato
+) AS q2;
 
 -- CREATE TABLE JOGOS
 
@@ -86,7 +105,13 @@ primary key (idTentativa, pkUsuario, pkJogo)
 );
 
 select * from jogos;
-
 select * from historico;
 
-select usuario.nome, jogos.nome, dtJogada as 'Data de Início' from historico join jogos on pkJogo = idJogo join usuario on pkUsuario = idUsuario;
+-- SELECTS TENTATIVAS EM JOGOS
+
+select count(idTentativa) as qtd from historico where pkJogo = 1;
+select count(idTentativa) as qtd from historico where pkJogo = 2;
+select count(idTentativa) as qtd from historico where pkJogo = 3;
+select count(idTentativa) as qtd from historico where pkJogo = 4;
+select count(idTentativa) as qtd from historico where pkJogo = 5;
+select count(idTentativa) as qtd from historico where pkJogo = 6;

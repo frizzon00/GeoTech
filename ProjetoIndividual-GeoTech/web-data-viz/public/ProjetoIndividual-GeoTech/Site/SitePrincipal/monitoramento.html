@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTech - Monitoramento</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../../../assets/GeoTech.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="qtdUser(), qtdTentativas(), qtdMensagens()">
+    <div class="header">
+
+        <div class="container">
+            <div class="principal">
+                <img src="../../../assets/GeoTech.png" alt="" class="logo" width="55px">
+                <h1 class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a style="display: flex; width: max-content;" href="real.html">Tempo Real</a>
+                </li>
+                <li>
+                    <a href="contato.html">Feedback</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li onclick="sair()">
+                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudoMonitoramento">
+        <h1>Plataforma GeoTech</h1>
+        <div class="monitoramento1">
+            <canvas id="usuarios" width="380px" height="210px"></canvas>
+            <canvas id="jogos" width="380px" height="210px"></canvas>
+        </div>
+        <div class="monitoramento2">
+            <div class="totalContatos">Total de Mensagens:</div>
+            <canvas id="feedback" width="350px" height="190px"></canvas>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <p class="footerp">© Copyright GeoTech. Todos os Direitos Reservados</p>
+    </div>
+</body>
+
+</html>
+<script>
+    setInterval(qtdUser, 10000);
+
+    let dadosAfrica = null;
+    let dadosAsia = null;
+    let dadosAmericaN = null;
+    let dadosAmericaS = null;
+    let dadosEuropa = null;
+    let dadosOceania = null;
+
+    async function qtdUser() {
+        await africa();
+        await asia();
+        await americaN();
+        await americaS();
+        await europa();
+        await oceania();
+        atualizarGrafico();
+    }
+
+    async function africa() {
+        try {
+            const resposta = await fetch("/usuarios/africa");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            dadosAfrica = dados.continente;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function asia() {
+        try {
+            const resposta = await fetch("/usuarios/asia");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            dadosAsia = dados.continente;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function americaN() {
+        try {
+            const resposta = await fetch("/usuarios/americaN");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            dadosAmericaN = dados.continente;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function americaS() {
+        try {
+            const resposta = await fetch("/usuarios/americaS");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            dadosAmericaS = dados.continente;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function europa() {
+        try {
+            const resposta = await fetch("/usuarios/europa");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            dadosEuropa = dados.continente;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function oceania() {
+        try {
+            const resposta = await fetch("/usuarios/oceania");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            dadosOceania = dados.continente;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function atualizarGrafico() {
+        const ctx = document.getElementById('usuarios');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['África', 'América do Norte e Central', 'América do Sul', 'Ásia', 'Europa', 'Oceânia'],
+                datasets: [{
+                    label: 'Usuarios Por Continente',
+                    data: [dadosAfrica, dadosAmericaN, dadosAmericaS, dadosAsia, dadosEuropa, dadosOceania],
+                    backgroundColor: 'rgba(0,212,255,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white',
+                            
+                        }
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    setInterval(qtdTentativas, 10000);
+
+    let jogo1 = null;
+    let jogo2 = null;
+    let jogo3 = null;
+    let jogo4 = null;
+    let jogo5 = null;
+    let jogo6 = null;
+
+    async function qtdTentativas() {
+        await memoryGame1();
+        await quiz1();
+        await memoryGame2();
+        await pais1();
+        await forca1();
+        await bandeira1();
+        atualizarGrafico2();
+    }
+
+    async function memoryGame1() {
+        try {
+            const resposta = await fetch("/usuarios/memoryGame1");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            jogo1 = dados.jogo;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function quiz1() {
+        try {
+            const resposta = await fetch("/usuarios/quiz1");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            jogo2 = dados.jogo;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function memoryGame2() {
+        try {
+            const resposta = await fetch("/usuarios/memoryGame2");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            jogo3 = dados.jogo;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function pais1() {
+        try {
+            const resposta = await fetch("/usuarios/pais1");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            jogo4 = dados.jogo;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function forca1() {
+        try {
+            const resposta = await fetch("/usuarios/forca1");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            jogo5 = dados.jogo;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function bandeira1() {
+        try {
+            const resposta = await fetch("/usuarios/bandeira1");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            jog6 = dados.jogo;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function atualizarGrafico2() {
+        const ctx2 = document.getElementById('jogos');
+
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Memória 1', 'Quiz', 'Memória 2', 'Acerte o País', 'Forca', 'Bandeiras'],
+                datasets: [{
+                    label: 'Tentativas por Jogo',
+                    data: [jogo1, jogo2, jogo3, jogo4, jogo5, jogo6],
+                    backgroundColor: 'rgba(0,212,255,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            color: 'white'  // Cor do título do eixo Y
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo Y
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            color: 'white'  // Cor do título do eixo X
+                        },
+                        ticks: {
+                            color: 'white'  // Cor das labels do eixo X
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'  // Cor das labels da legenda
+                        }
+                    }
+
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    setInterval(qtdMensagens, 10000);
+
+    let sugestao = null;
+    let critica = null;
+    let elogio = null;
+    let contato = null;
+
+    async function qtdMensagens() {
+        await sugestoes();
+        await criticas();
+        await elogios();
+        await contatos();
+        atualizarGrafico3();
+    }
+
+    async function sugestoes() {
+        try {
+            const resposta = await fetch("/usuarios/sugestoes");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            sugestao = dados.mensagem;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function criticas() {
+        try {
+            const resposta = await fetch("/usuarios/criticas");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            critica = dados.mensagem;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function elogios() {
+        try {
+            const resposta = await fetch("/usuarios/elogios");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            elogio = dados.mensagem;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function contatos() {
+        try {
+            const resposta = await fetch("/usuarios/contatos");
+            if (!resposta.ok) {
+                throw new Error('Houve um erro na API!');
+            }
+            const dados = await resposta.json();
+            contato = dados.mensagem;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function atualizarGrafico3() {
+        const ctx3 = document.getElementById('feedback');
+
+        new Chart(ctx3, {
+    type: 'pie',
+    data: {
+        labels: ['Elogio', 'Crítica', 'Sugestão', 'Contatos'],
+        datasets: [{
+            label: 'Número de Mensagens',
+            data: [elogio, critica, sugestao, contato],
+            backgroundColor: [
+                'rgba(0, 212, 255, 1)', // Cor para Elogio
+                'rgba(255, 0, 0, 1)',    // Cor para Crítica
+                'rgba(255, 100, 0, 1)',  // Cor para Sugestão
+                'rgba(255, 202, 0, 1)'   // Cor para Contatos
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                display: false,
+                title: {
+                    display: true,
+                    color: 'white'  // Cor do título do eixo Y
+                },
+                ticks: {
+                    color: 'white'  // Cor das labels do eixo Y
+                }
+            },
+            x: {
+                beginAtZero: true,
+                display: false,
+                title: {
+                    display: true,
+                    color: 'white'  // Cor do título do eixo Y
+                },
+                ticks: {
+                    color: 'white'  // Cor das labels do eixo Y
+                }
+            },
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white'  // Cor das labels da legenda
+                }
+            }
+        }
+    }
+});
+
+    }
+</script>
+
+<script>
+    const nomeUser = sessionStorage.NOME_USUARIO;
+    const idUser = sessionStorage.ID_USUARIO;
+    const emailUser = sessionStorage.EMAIL_USUARIO;
+    const continenteUser = sessionStorage.CONTINENTE_USUARIO;
+
+    function sair() {
+        sessionStorage.clear();
+        window.location = "../../../index.html";
+    }
+</script>

@@ -7,12 +7,13 @@
     <title>GeoTech - Página Inicial</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../../../assets/GeoTech.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body onload="qtdUser()">
     <div class="header">
 
-        <div class="container">
+        <div class="container" id="container">
             <div class="principal">
                 <img src="../../../assets/GeoTech.png" alt="" class="logo" width="55px">
                 <h1 id="tituloNome" class="titulo">GeoTech</h1>
@@ -126,6 +127,40 @@
 
     const nomeUser = sessionStorage.NOME_USUARIO;
     const idUser = sessionStorage.ID_USUARIO;
+
+    if (idUser == 1) {
+        container.innerHTML = `<div class="principal" style="margin-left: -25px;"><a href="monitoramento.html" style="display: flex;
+                flex-direction: column;
+                justify-content: center;
+                cursor:auto;">
+                    <i class="fa-solid fa-gear" style="color: #ffffff; font-size: 25px;cursor: pointer;"></i></a>
+                <img src="../../../assets/GeoTech.png" alt="" class="logo" width="55px">
+                <h1 id="tituloNome" class="titulo">GeoTech</h1>
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="curiosidadades.html">Curiosidades</a>
+                </li>
+                <li>
+                    <a href="jogos.html">Jogos</a>
+                </li>
+                <li>
+                    <a style="display: flex; width: max-content;" href="real.html">Tempo Real</a>
+                </li>
+                <li>
+                    <a href="contato.html">Feedback</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li onclick="sair()">
+                    <Span style="color: #fff; font-weight: bold; cursor: pointer;">Sair</Span>
+                </li>
+            </ul>`
+    }
     const emailUser = sessionStorage.EMAIL_USUARIO;
     // Recupere o texto armazenado na sessionStorage
     const continenteUser = sessionStorage.getItem('CONTINENTE_USUARIO');
@@ -150,6 +185,8 @@
             h5Element.style.animation = "mudarTitulo 4s linear infinite";
         }
     }
+    setInterval(qtdUser, 10000);
+
     function qtdUser() {
         africa()
         asia()
